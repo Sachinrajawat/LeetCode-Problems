@@ -1,7 +1,6 @@
 class Solution {
     public int[][] restoreMatrix(int[] rowSum, int[] colSum) {
         int m=rowSum.length,n=colSum.length;
-
         int[][] ans=new int[m][n];
         for(int i=0;i<m;i++){
             int x=rowSum[i];
@@ -16,10 +15,8 @@ class Solution {
                     x-=colSum[j];
                     colSum[j]=0;
                 }
-
             }
         }
-
         return ans;
     }
 }
