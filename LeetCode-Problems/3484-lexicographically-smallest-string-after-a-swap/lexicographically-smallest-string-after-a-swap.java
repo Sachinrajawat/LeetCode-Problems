@@ -3,23 +3,18 @@ class Solution {
        String ans="";
        int i=1;
        for(i=1;i<s.length();i++){
-        char ch=s.charAt(i);
-        int c1=(int)ch-(int)'0';
-        int c2=(int)s.charAt(i-1)-(int)'0';
-        System.out.println(c1+" "+c2);
-        if(c1%2==c2%2 &&c1<c2){
-            ans=ans+ch+s.charAt(i-1);
+        char ch1=s.charAt(i-1);
+        char ch2=s.charAt(i);
+        
+        if((int)ch1%2==(int)ch2%2 &&ch2<ch1){
+            ans=ans+ch2+ch1;
             System.out.println(ans);
             break;
         }
-        else{
-            ans+=s.charAt(i-1);
-        }
-        if(i==s.length()-1) ans+=ch;
+        else ans+=ch1;
+        if(i==s.length()-1) ans+=ch2;
        }
-       for(int j=i+1;j<s.length();j++){
-        ans+=s.charAt(j);
-       }
+       for(int j=i+1;j<s.length();j++) ans+=s.charAt(j);
        return ans;
     }
 }
