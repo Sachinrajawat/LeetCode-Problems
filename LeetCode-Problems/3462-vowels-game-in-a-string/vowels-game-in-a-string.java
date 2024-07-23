@@ -9,8 +9,6 @@ class Solution {
             }
         }
         if(v==0) return false;
-        else if(v%2!=0) return true;
-        System.out.println(v);
         return true;
     }
 }
