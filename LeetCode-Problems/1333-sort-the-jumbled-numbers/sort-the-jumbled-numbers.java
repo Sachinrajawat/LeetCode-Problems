@@ -2,10 +2,9 @@ class Solution {
     public int[] sortJumbled(int[] mapping, int[] nums) {
         int[] Nnums=new int[nums.length];
         for(int i=0;i<nums.length;i++){
-            int x=nums[i];
-            int num=0;
-            int j=0;
-            if(x!=0){while(x!=0){
+            int x=nums[i], num=0, j=0;
+            if(x!=0){
+                while(x!=0){
                 int rem=x%10;
                 x/=10;
                 int y=mapping[rem];
