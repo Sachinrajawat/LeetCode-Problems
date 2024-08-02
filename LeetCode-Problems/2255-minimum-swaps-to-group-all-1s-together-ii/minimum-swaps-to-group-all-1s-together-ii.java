@@ -1,7 +1,6 @@
 class Solution {
     public int minSwaps(int[] nums) {
         int count1=0;
-        
         for(int num:nums){
             if(num==1) count1++;
         }
@@ -17,10 +16,7 @@ class Solution {
         for(int i=0;i<count1;i++){
             if(searchArray[i]==0) count0++;
         }
-        // System.out.print(count0+" ");
-        // for(int n:searchArray){
-        //     System.out.print(n+" ");
-        // }
+        
         min=count0;
         for(int i=count1;i<searchArray.length;i++){
             if(searchArray[i]==0) count0++;
