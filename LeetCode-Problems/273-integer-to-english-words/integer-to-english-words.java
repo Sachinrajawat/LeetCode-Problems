@@ -48,9 +48,9 @@ class Solution {
         return ans;
     }
     public String numberToWords(int num) {
+        
+        if(num==0) return "Zero";
         String ans="";
-        if(num==0) ans="Zero";
-        else{
         int i=0;
         while(num!=0){
             if(i==0){
@@ -82,7 +82,6 @@ class Solution {
             }
             else num=0;
             i++;
-        }
         }
         ans=ans.trim();
         String[] word=ans.split("\\s+");
