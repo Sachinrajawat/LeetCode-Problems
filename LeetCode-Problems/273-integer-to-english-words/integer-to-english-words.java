@@ -1,5 +1,5 @@
 class Solution {
-    String one_ninety(int num){
+    String one_ninety(int num){  
         if(num==1) return "One";
         else if(num==2) return "Two";
         else if(num==3) return "Three";
@@ -29,7 +29,7 @@ class Solution {
         else if(num==90) return "Ninety";
         return "";
     }
-    String hundred(int num){
+    String hundred(int num){ //
         String ans="";
         while(num!=0){
             if(num>=100){
@@ -39,10 +39,6 @@ class Solution {
             else if(num>=20){
                 ans+=one_ninety((num)-(num%10))+" ";
                 num%=10;
-            }
-            else if(num>=10){
-                ans+=one_ninety(num);
-                num=0;
             }
             else{
                 ans+=one_ninety(num);
@@ -54,16 +50,6 @@ class Solution {
     public String numberToWords(int num) {
         String ans="";
         if(num==0) ans="Zero";
-        // else if(num%1000000000==0) ans=hundred(num/1000000000)+" Billion";
-        // else if(num%1000000==0){
-        //     num/=1000000;
-        //     if(num>1000){
-        //         ans=hundred(num/1000)+" Billion "+hundred(num%1000)+" Million";
-        //     }
-        //     else{
-        //         ans+=hundred(num)+" Million";
-        //     }
-        // }
         else{
         int i=0;
         while(num!=0){
