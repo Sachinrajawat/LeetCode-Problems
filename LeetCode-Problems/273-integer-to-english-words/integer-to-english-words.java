@@ -1,5 +1,5 @@
 class Solution {
-    String one_ninety(int num){  
+    String one_ninety(int num){  //taking number less than 100 and converting into words
         if(num==1) return "One";
         else if(num==2) return "Two";
         else if(num==3) return "Three";
@@ -29,7 +29,7 @@ class Solution {
         else if(num==90) return "Ninety";
         return "";
     }
-    String hundred(int num){ //
+    String hundred(int num){ //taking number less than 1000 and converting into words
         String ans="";
         while(num!=0){
             if(num>=100){
@@ -53,38 +53,38 @@ class Solution {
         String ans="";
         int i=0;
         while(num!=0){
-            if(i==0){
-                ans+=hundred(num%1000);
+            if(i==0){ //if num is only 3 digit number
+                ans+=hundred(num%1000);//converting last three digit into words
             }
-            else if(i==1){
-                if(ans.length()>=8 &&ans.substring(0,8).equals(" Hundred")){
-                    ans=ans.substring(9,ans.length());
+            else if(i==1){ //if num more than 3 digit number
+                if(ans.length()>=8 &&ans.substring(0,8).equals(" Hundred")){ 
+                    ans=ans.substring(9,ans.length());//if in ans Hundred comes after the Thousand then remove Hundred from ans
                 }
                 ans=hundred(num%1000)+" Thousand "+ans;
             }
-            else if(i==2){
+            else if(i==2){ //if num more than 6 digit number
                 System.out.println(ans);
                 if(ans.length()>=9 &&ans.substring(0,9).equals(" Thousand")){
-                    ans=ans.substring(10,ans.length());
+                    ans=ans.substring(10,ans.length());//if in ans Thousand comes after the Million then remove Hundred from ans
                 }
                 ans=hundred(num%1000)+" Million "+ans;
             }
-            else{
-                if(ans.length()>=8 && ans.substring(0,8).equals(" Million")){
+            else{ //if num more than 9 digit number
+                if(ans.length()>=8 && ans.substring(0,8).equals(" Million")){ //if in ans Million comes after the Thousand then remove Billion from ans
                     ans=ans.substring(9,ans.length());
                 }
                 ans=hundred(num%1000)+" Billion "+ans;
             }
             String str=Integer.toString(num);
-            if(str.length()>3){
+            if(str.length()>3){//deleting the last three digit from number
                 String subStr=str.substring(0,str.length()-3);
                 num=Integer.parseInt(subStr);
             }
             else num=0;
             i++;
         }
-        ans=ans.trim();
-        String[] word=ans.split("\\s+");
+        ans=ans.trim(); //removing the extra spaces from the end & starting if any
+        String[] word=ans.split("\\s+"); //removing the extra spaces from the ans if any
         ans=String.join(" ",word);
         return ans;
     }
