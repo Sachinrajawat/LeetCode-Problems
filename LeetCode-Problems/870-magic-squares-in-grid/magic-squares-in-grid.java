@@ -1,5 +1,5 @@
 class Solution {
-    public boolean isMagicSquares(int[][] grid,int row,int col){
+    // public boolean isMagicSquares(int[][] grid,int row,int col){
     //     HashMap<Integer,Integer> map=new HashMap<>();
     //     for(int i=row;i<row+3;i++){
     //         for(int j=col;j<col+3;j++){
@@ -39,6 +39,9 @@ class Solution {
     //     }
     //     System.out.println(count);
     //     return count;
+
+    //gpt ans
+    public boolean isMagicSquares(int[][] grid, int row, int col) {
         boolean[] seen = new boolean[10];  // Track digits 1-9
         
         int[] sums = new int[8]; // Holds sums of rows, cols, and diagonals
