@@ -1,6 +1,5 @@
 class Solution {
     public boolean isMagicSquares(int[][] grid,int row,int col){
-        if(row+3>grid.length || col+3>grid[0].length) return false;
         HashMap<Integer,Integer> map=new HashMap<>();
         for(int i=row;i<row+3;i++){
             for(int j=col;j<col+3;j++){
