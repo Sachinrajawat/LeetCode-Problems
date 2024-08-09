@@ -1,6 +1,71 @@
 class Solution {
     public int[][] spiralMatrixIII(int rows, int cols, int rStart, int cStart) {
-        int[][] result = new int[rows * cols][2];
+        ArrayList<ArrayList<Integer>> arr=new ArrayList<>();
+        
+        int rLim=cStart,bLim=rStart,lLim=cStart,uLim=rStart;
+        while(rLim<cols || bLim<rows ||lLim>=0||uLim>=0){
+            System.out.println(rLim+" "+lLim+" "+bLim+" "+uLim);
+            // System.out.println(rStart+" "+cStart);
+            while(cStart<=rLim+1){
+                if(cStart<cols &&cStart>=0 && rStart>=0 && rStart<rows){
+            ArrayList<Integer> row=new ArrayList<>();
+            row.add(rStart);
+            row.add(cStart);
+            arr.add(row);
+                }
+            cStart++;
+            }
+            rLim++;
+            cStart--;
+            rStart++;
+            while(rStart<=bLim+1){
+                if(cStart<cols &&cStart>=0 && rStart>=0 && rStart<rows){
+                ArrayList<Integer> row=new ArrayList<>();
+                row.add(rStart);
+                row.add(cStart);
+                arr.add(row);
+                }
+                rStart++;
+            }
+            bLim++;
+            rStart--;
+            cStart--;
+            while(cStart>=lLim-1){
+                if(cStart<cols &&cStart>=0 && rStart>=0 && rStart<rows){
+                ArrayList<Integer> row=new ArrayList<>();
+                row.add(rStart);
+                row.add(cStart);
+                arr.add(row);
+                }
+                cStart--;
+            }
+            lLim--;
+            rStart--;
+            cStart++;
+            while(rStart>=uLim-1){
+                if(cStart<cols &&cStart>=0 && rStart>=0 && rStart<rows){
+                ArrayList<Integer> row=new ArrayList<>();
+                row.add(rStart);
+                row.add(cStart);
+                arr.add(row);
+                }
+                rStart--;
+            }
+            uLim--;
+            rStart++;
+            cStart++;
+            // System.out.println(rStart+" "+cStart);
+        }
+        
+        int[][] arr2D=new int[arr.size()][2];
+        for(int i=0;i<arr.size();i++){
+            arr2D[i][0]=arr.get(i).get(0);
+            arr2D[i][1]=arr.get(i).get(1);
+        }
+        return arr2D;
+
+
+        /*int[][] result = new int[rows * cols][2];
         int index = 0;
         result[index++] = new int[]{rStart, cStart};
 
@@ -26,6 +91,6 @@ class Solution {
             step++;
         }
 
-        return result;
+        return result;*/
     }
 }
