@@ -4,8 +4,6 @@ class Solution {
         
         int rLim=cStart,bLim=rStart,lLim=cStart,uLim=rStart;
         while(rLim<cols || bLim<rows ||lLim>=0||uLim>=0){
-            System.out.println(rLim+" "+lLim+" "+bLim+" "+uLim);
-            // System.out.println(rStart+" "+cStart);
             while(cStart<=rLim+1){
                 if(cStart<cols &&cStart>=0 && rStart>=0 && rStart<rows){
             ArrayList<Integer> row=new ArrayList<>();
@@ -54,7 +52,6 @@ class Solution {
             uLim--;
             rStart++;
             cStart++;
-            // System.out.println(rStart+" "+cStart);
         }
         
         int[][] arr2D=new int[arr.size()][2];
@@ -65,7 +62,9 @@ class Solution {
         return arr2D;
 
 
-        /*int[][] result = new int[rows * cols][2];
+        /*
+        //GPT ans
+        int[][] result = new int[rows * cols][2];
         int index = 0;
         result[index++] = new int[]{rStart, cStart};
 
