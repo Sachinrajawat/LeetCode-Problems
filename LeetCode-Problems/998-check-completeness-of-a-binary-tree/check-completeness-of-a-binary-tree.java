@@ -15,23 +15,27 @@
  */
 class Solution {
     public boolean isCompleteTree(TreeNode root) {
-        Queue<TreeNode> st=new LinkedList<>();
-        st.offer(root);
-        boolean r=false;
-        while(st.size()!=0){
-            TreeNode node=st.poll();
-            System.out.println(node.val);
-            if(node.left!=null && r) return false;
-            if(node.left==null && node.right!=null) return false;
-            else if(node.left!=null && node.right==null) r=true;
-            else if(node.left==null && node.right==null) r=true;
-            if(node.left!=null){
-                st.offer(node.left);
+        Queue<TreeNode> queue=new LinkedList<>();
+        queue.offer(root);
+        boolean foundNullChild=false;
+        while(!queue.isEmpty()){
+            TreeNode node = queue.poll();
+            
+            // Left child check
+            if (node.left != null) {
+                if (foundNullChild) return false;
+                queue.offer(node.left);
+            } else {
+                foundNullChild = true; // Left child is missing, flag it
             }
-            if(node.right!=null){
-                st.offer(node.right);
+            
+            // Right child check
+            if (node.right != null) {
+                if (foundNullChild) return false;
+                queue.offer(node.right);
+            } else {
+                foundNullChild = true; // Right child is missing, flag it
             }
-            System.out.println(st);
         }
         return true;
     }
