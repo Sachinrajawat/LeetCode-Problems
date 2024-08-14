@@ -32,9 +32,7 @@ class Solution {
         int i=0;
         ListNode temp=head;
         while(i<=mid){
-            if(i==mid) {
-                node=new TreeNode(temp.val);
-            }
+            if(i==mid) node=new TreeNode(temp.val);
             temp=temp.next;
             i++;
         }
@@ -50,7 +48,6 @@ class Solution {
             temp=temp.next;
         }
         TreeNode node=inorder(head,0,size-1);
-        System.out.println(size);
         return node;
     }
 }
