@@ -46,11 +46,8 @@ class Solution {
                     sec=arr.get(i);
                     x=false;
                 }
-                // break;
             }
         }
-    System.out.println(first+" "+sec);
-        System.out.println(arr);
         recover(root,first,sec,false,false);
     }
 }
