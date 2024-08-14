@@ -18,7 +18,6 @@ class Solution {
         int n=nums.length,ans=0;
         Arrays.sort(nums);
         int start=0,end=nums[n-1]-nums[0];
-        System.out.println(start+" "+end);
         while(start<=end){
             int mid=start+(end-start)/2;
             int count=0;
@@ -28,7 +27,6 @@ class Solution {
                     if(a<=mid) count++;
                     else break;
                 }
-                System.out.println(count);
             }
             if(count>=k){
                 ans=mid;
