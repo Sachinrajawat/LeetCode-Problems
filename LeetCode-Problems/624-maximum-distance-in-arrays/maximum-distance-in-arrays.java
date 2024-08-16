@@ -16,13 +16,14 @@ class Solution {
         // return (int)diff;
         int min=arrays.get(0).get(0);
         int max=arrays.get(0).get(arrays.get(0).size()-1);
-        System.out.println(min+" "+max);
         double ans=0;
         for(int i=1;i<arrays.size();i++){
-            ans=Math.max(ans,Math.abs(arrays.get(i).get(arrays.get(i).size()-1)-min));
-            ans=Math.max(ans,Math.abs(max-arrays.get(i).get(0)));
-            min=Math.min(min,arrays.get(i).get(0));
-            max=Math.max(arrays.get(i).get(arrays.get(i).size()-1),max);
+            int n=arrays.get(i).size();
+            List<Integer> l=arrays.get(i);
+            ans=Math.max(ans,Math.abs(l.get(n-1)-min));
+            ans=Math.max(ans,Math.abs(max-l.get(0)));
+            min=Math.min(min,l.get(0));
+            max=Math.max(l.get(n-1),max);
         }
         return (int)ans;
     }
