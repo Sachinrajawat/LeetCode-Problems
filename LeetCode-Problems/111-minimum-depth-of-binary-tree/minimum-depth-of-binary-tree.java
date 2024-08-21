@@ -24,7 +24,6 @@ class Solution {
             min=Math.min(min,1+minDepth(root.left));
             min=Math.min(min,1+minDepth(root.right));
         }
-        System.out.println(min);
         return min;
     }
 }
