@@ -24,8 +24,6 @@ class Solution {
     public boolean isBalanced(TreeNode root) {
         if(root==null) return true;
         int height=Math.abs(maxHeight(root.left)-maxHeight(root.right));
-
-        System.out.println(maxHeight(root.left)+" "+maxHeight(root.right)+" "+height);
         if(height>1) return false;
         return isBalanced(root.left) && isBalanced(root.right);
     }
