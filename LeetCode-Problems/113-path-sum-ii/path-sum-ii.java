@@ -33,22 +33,18 @@ class Solution {
         if(root.left!=null && root.right!=null){
             ArrayList<Integer> aL= new ArrayList<>(arr);
             aL.add(root.left.val);
-            System.out.println(aL);
             pathSum(root.left,map,aL,sum+root.left.val);
             ArrayList<Integer> aR= new ArrayList<>(arr);
             aR.add(root.right.val);
-            System.out.println(aR);
             pathSum(root.right,map,aR,sum+root.right.val);
         }
         else if(root.left!=null || root.right!=null){
             if(root.left!=null){
                 arr.add(root.left.val);
-                System.out.println(arr);
                 pathSum(root.left,map,arr,sum+root.left.val);
             }
             else if(root.right!=null){
                 arr.add(root.right.val);
-                System.out.println(arr);
                 pathSum(root.right,map,arr,sum+root.right.val);
             }
         }
@@ -58,12 +54,9 @@ class Solution {
         List<List<Integer>> ans=new ArrayList<>();
         if(root==null) return ans;
         HashMap<Integer,ArrayList<ArrayList<Integer>>> map=new HashMap<>();
-        // ArrayList<ArrayList<Integer>> arr=new ArrayList<>();
         ArrayList<Integer> arr=new ArrayList<>();
         arr.add(root.val);
-        // arr.add(a);
         pathSum(root,map,arr,root.val);
-        System.out.println(map);
         if(!map.containsKey(targetSum)) return ans;
         else{
             for(var key:map.keySet()){
