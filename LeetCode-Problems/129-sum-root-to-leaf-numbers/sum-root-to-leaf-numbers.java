@@ -17,7 +17,6 @@ class Solution {
     public ArrayList<ArrayList<Integer>> path(TreeNode root,ArrayList<ArrayList<Integer>> list,ArrayList<Integer> arr){
         if(root.left==null &&root.right==null){
             list.add(arr);
-            
             return list;
         }
         
@@ -46,7 +45,6 @@ class Solution {
         ArrayList<Integer> arr=new ArrayList<>();
         arr.add(root.val);
         path(root,list,arr);
-        System.out.println(list);
         int sum=0;
         for(int i=0;i<list.size();i++){
             ArrayList<Integer> a=list.get(i);
