@@ -36,8 +36,6 @@ class BSTIterator {
     }
     
     public boolean hasNext() {
-        // if(temp==null) return false;
-        // temp=temp.right;
         if(i==arr.size()) return false;
         return true;
     }
