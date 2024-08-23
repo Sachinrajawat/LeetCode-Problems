@@ -9,16 +9,15 @@ class Solution {
     }
     public String fractionAddition(String expression) {
         String[] nums = expression.split("/|(?=[-+])");
-        int deno=1; //product of all denominator
-        //All denomi. presents on odd indexes
+        int deno=1;
         for(int i=1;i<nums.length;i+=2){
             deno*=Integer.parseInt(nums[i]);
         }
-        int nume=0; 
+        int nume=0;
         for(int i=0;i<nums.length-1;i+=2){
             nume+=Integer.parseInt(nums[i])*(deno/Integer.parseInt(nums[i+1]));
         }
-
+        
         int gcd=findGCD(nume,deno);
         if(gcd<0) gcd*=-1;
         nume/=gcd;
