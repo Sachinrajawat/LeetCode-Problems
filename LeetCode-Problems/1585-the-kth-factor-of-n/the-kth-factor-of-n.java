@@ -15,7 +15,7 @@ class Solution {
             else if(k==2) return n;
         }
         
-        // if(n/2<k) return -1;
+        if(n/2+1<k) return -1;
         // ArrayList<Integer> arr=new ArrayList<>();
         // arr.add(1);
         int a=1;
