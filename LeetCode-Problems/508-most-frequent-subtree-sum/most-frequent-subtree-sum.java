@@ -23,17 +23,13 @@ class Solution {
     public int[] findFrequentTreeSum(TreeNode root) {
         HashMap<Integer,Integer> map=new HashMap<>();
         sum(map,root);
-        System.out.println(map);
-        
-        int maxFreq=1;
-        int count=0;
+        int maxFreq=1,count=0;
         for(var key:map.keySet()){
             if(maxFreq==map.get(key)) count++;
             if(maxFreq<map.get(key)){
             maxFreq=map.get(key);
             count=1;
            }
-            
         }
         int[] arr=new int[count];
         int i=0;
