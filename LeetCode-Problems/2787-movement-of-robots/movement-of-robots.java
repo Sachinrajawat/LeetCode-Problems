@@ -19,7 +19,7 @@ class Solution {
         
         for(int i=1;i<prefixSum.length;i++){
             long y=((long)nums[i]*i-prefixSum[i-1])%MOD;
-            y=(y+MOD)%MOD;
+            // y=(y+MOD)%MOD;
             ans=(y+ans)%MOD;
         }
         return (int)ans;
