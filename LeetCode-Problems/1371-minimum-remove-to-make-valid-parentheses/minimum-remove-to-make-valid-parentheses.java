@@ -18,11 +18,10 @@ class Solution {
                 }
             }
         }
-        System.out.println(charStack+" "+index);
         StringBuilder sb=new StringBuilder(s);
-        while(!index.isEmpty()){
-            sb.deleteCharAt(index.pop());
-        }
+        
+        while(!index.isEmpty()) sb.deleteCharAt(index.pop());
+        
         return sb.toString();
 
     }
