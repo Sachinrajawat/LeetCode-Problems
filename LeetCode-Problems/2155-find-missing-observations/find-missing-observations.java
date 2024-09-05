@@ -6,21 +6,35 @@ class Solution {
 
         if(nSum>6*n || nSum<0 ||n>nSum) return new int[0];
         int[] ans=new int[n];
-        for(int i=0;i<ans.length;i++) ans[i]+=nSum/n;
         int rem=nSum%n;
-        if(rem!=0){
-            int j=0;
-            while(rem>0){
-                if(6-ans[j]<=rem){
-                    rem-=6-ans[j];
-                    ans[j++]=6;
+        int k=0;
+        for(int i=0;i<ans.length;i++){
+            ans[i]+=nSum/n;
+            if(rem!=0){
+                if(6-ans[k]<=rem){
+                    rem-=6-ans[k];
+                    ans[k++]=6;
                 }
                 else{
-                    ans[j++]+=rem;
-                    break;
+                    ans[k++]+=rem;
+                    rem=0;
                 }
             }
         }
+        
+        // if(rem!=0){
+        //     int j=0;
+        //     while(rem>0){
+        //         if(6-ans[j]<=rem){
+        //             rem-=6-ans[j];
+        //             ans[j++]=6;
+        //         }
+        //         else{
+        //             ans[j++]+=rem;
+        //             break;
+        //         }
+        //     }
+        // }
         return ans;
     }
 }
