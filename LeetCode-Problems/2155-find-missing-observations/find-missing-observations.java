@@ -10,7 +10,7 @@ class Solution {
         int k=0;
         for(int i=0;i<ans.length;i++){
             ans[i]+=nSum/n;
-            if(rem!=0){
+            // if(rem!=0){
                 if(6-ans[k]<=rem){
                     rem-=6-ans[k];
                     ans[k++]=6;
@@ -19,22 +19,8 @@ class Solution {
                     ans[k++]+=rem;
                     rem=0;
                 }
-            }
+            // }
         }
-        
-        // if(rem!=0){
-        //     int j=0;
-        //     while(rem>0){
-        //         if(6-ans[j]<=rem){
-        //             rem-=6-ans[j];
-        //             ans[j++]=6;
-        //         }
-        //         else{
-        //             ans[j++]+=rem;
-        //             break;
-        //         }
-        //     }
-        // }
         return ans;
     }
 }
