@@ -7,7 +7,7 @@ class Solution {
         if(missSum>6*n || missSum<n) return new int[0];
         
         int[] ans=new int[n];
-        int rem=missSum%n, j=0;
+        int rem=missSum%n;
         for(int i=0;i<ans.length;i++){
             ans[i]+=missSum/n;
             if(rem>0){
