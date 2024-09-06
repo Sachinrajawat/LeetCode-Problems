@@ -3,7 +3,6 @@ class Solution {
         String[] arr=path.split("/");
         int j=0;
         String ans="";
-        // for(String i:arr) System.out.println(i);
         Stack<String> st=new Stack<>();
         st.push("/");
         for(int i=0;i<arr.length;i++){
@@ -15,15 +14,11 @@ class Solution {
                 if(st.size()>1) st.pop();
                 if(st.size()>1) st.pop();
             }
-            else{
-                st.push(arr[i]);
-            }
+            else st.push(arr[i]);
 
         }
         if(st.size()>1 && st.peek().equals("/")) st.pop(); 
-        while(!st.isEmpty()){
-            ans=st.pop()+ans;
-        }
+        while(!st.isEmpty()) ans=st.pop()+ans;
         return ans;
     }
 }
