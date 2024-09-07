@@ -24,15 +24,15 @@
  * }
  */
 class Solution {
-    public boolean funct(ListNode head,TreeNode root){
+    public boolean dfs(ListNode head,TreeNode root){
         if(head==null) return true;
         if(root==null) return false;
         if(root.val!=head.val) return false;
-        return (funct(head.next,root.left) || funct(head.next,root.right));
+        return (dfs(head.next,root.left) || dfs(head.next,root.right));
     }
     public boolean isSubPath(ListNode head, TreeNode root) {
         if(root==null) return false;
-        if(funct(head,root)) return true;
+        if(dfs(head,root)) return true;
         return (isSubPath(head,root.left)||isSubPath(head,root.right));
     }
 }
