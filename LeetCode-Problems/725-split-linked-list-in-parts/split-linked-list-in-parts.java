@@ -29,9 +29,9 @@ class Solution {
         
         temp=head;
         for(int i=0;i<k;i++){
-            ListNode prev=null;
             arr[i]=temp;
             if(size[i]>0){
+                ListNode prev=null;
                 while(size[i]>0){
                     prev=temp;
                     temp=temp.next;
