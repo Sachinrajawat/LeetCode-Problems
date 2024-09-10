@@ -17,9 +17,9 @@ class Solution {
         if(head.next==null) return head;
         ListNode curr=head;
         while(curr.next!=null){
-            int Gcd=gcd(curr.val,curr.next.val);
+            // int Gcd=gcd(curr.val,curr.next.val);
             ListNode temp=curr.next;
-            curr.next=new ListNode(Gcd);
+            curr.next=new ListNode(gcd(curr.val,curr.next.val));
             curr.next.next=temp;
             curr=temp;
         }
