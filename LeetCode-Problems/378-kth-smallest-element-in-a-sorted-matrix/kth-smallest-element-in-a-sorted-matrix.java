@@ -9,7 +9,6 @@ class Solution {
                     pq.add(matrix[j][i]);
                     pq.add(matrix[i][j]);
                 }
-                // if(pq.size()>=k) break;
             j++;
         }
         int ans=0;
