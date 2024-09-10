@@ -1,9 +1,7 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
-        PriorityQueue<Integer> pq=new PriorityQueue<>(); 
         HashMap<Integer,Integer> map=new HashMap<>();
         for(int i:nums) map.put(i,map.getOrDefault(i,0)+1);
-        System.out.println(map);
         TreeMap<Integer,ArrayList<Integer>> Tmap=new TreeMap<>(Collections.reverseOrder());
         for(var key:map.keySet()){
             if(!Tmap.containsKey(map.get(key))){
@@ -17,7 +15,6 @@ class Solution {
                 Tmap.put(map.get(key),arr);
             }
         }
-        System.out.println(Tmap);
         int[] ans=new int[k];
         int j=0;
         while(j<k){
