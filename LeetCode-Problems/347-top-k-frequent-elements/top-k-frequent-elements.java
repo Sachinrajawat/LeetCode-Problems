@@ -1,5 +1,6 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
+        /*
         HashMap<Integer,Integer> map=new HashMap<>();
         for(int i:nums) map.put(i,map.getOrDefault(i,0)+1);
         TreeMap<Integer,ArrayList<Integer>> Tmap=new TreeMap<>(Collections.reverseOrder());
@@ -26,6 +27,30 @@ class Solution {
                 }
             }
         }
-        return ans;
+        return ans;*/
+        HashMap<Integer, Integer> frequencyMap = new HashMap<>();
+        for (int num : nums) {
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+        }
+        
+        // Step 2: Use a min-heap to keep track of top k elements
+        PriorityQueue<Map.Entry<Integer, Integer>> minHeap = new PriorityQueue<>(
+            (a, b) -> a.getValue() - b.getValue() // Min-heap based on frequency
+        );
+
+        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+            minHeap.offer(entry); // Add entry to min-heap
+            if (minHeap.size() > k) {
+                minHeap.poll(); // Remove the least frequent element if size exceeds k
+            }
+        }
+
+        // Step 3: Collect the results from the min-heap
+        int[] result = new int[k];
+        for (int i = k - 1; i >= 0; i--) {
+            result[i] = minHeap.poll().getKey(); // Extract the keys of top k frequent elements
+        }
+        
+        return result;
     }
 }
