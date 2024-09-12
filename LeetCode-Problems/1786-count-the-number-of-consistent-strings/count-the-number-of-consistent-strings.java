@@ -1,9 +1,8 @@
 class Solution {
     public int countConsistentStrings(String allowed, String[] words) {
         int[] arr=new int[26];
-        for(int i=0;i<allowed.length();i++){
-            arr[allowed.charAt(i)-'a']=1;
-        }
+        for(int i=0;i<allowed.length();i++) arr[allowed.charAt(i)-'a']=1;
+
         int count=0;
         for(int i=0;i<words.length;i++){
             String s=words[i];
