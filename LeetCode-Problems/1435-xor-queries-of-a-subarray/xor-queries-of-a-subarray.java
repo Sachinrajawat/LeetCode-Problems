@@ -3,8 +3,7 @@ class Solution {
         int[] ans=new int[queries.length];
         for(int i=0;i<queries.length;i++){
             int val=0;
-            int start=queries[i][0],end=queries[i][1];
-            for(int j=start;j<=end;j++){
+            for(int j=queries[i][0];j<=queries[i][1];j++){
                 val=val^arr[j];
             }
             ans[i]=val;
