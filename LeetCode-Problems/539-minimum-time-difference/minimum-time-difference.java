@@ -8,12 +8,11 @@ class Solution {
             arr.add(min);
         }
         Collections.sort(arr);
-        System.out.println(arr);
         for(int i=0;i<arr.size()-1;i++){
             int x=arr.get(i+1)-arr.get(i);
             ans=Math.min(ans,x);
         }
-        int circularDiff = 1440 + arr.get(0) - arr.get(arr.size() - 1);
+        int circularDiff=1440+arr.get(0)-arr.get(arr.size()-1);
         ans = Math.min(ans, circularDiff);
         return ans;
     }
