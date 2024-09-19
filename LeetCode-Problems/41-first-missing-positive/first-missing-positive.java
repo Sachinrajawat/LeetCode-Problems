@@ -8,10 +8,13 @@ class Solution {
                 map.put(nums[i],map.getOrDefault(nums[i],0)+1);
             }
         }
+        int ans=1;
         for(int i=1;i<=max+1;i++){
-            if(!map.containsKey(i)) return i;
+            if(!map.containsKey(i)){
+                ans=i;
+                break;
+            }
         }
-
-        return 0;
+        return ans;
     }
 }
