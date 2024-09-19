@@ -1,20 +1,25 @@
 class Solution {
     public int firstMissingPositive(int[] nums) {
-        Map<Integer,Integer> map=new HashMap<>();
-        long max=1;
-        for(int i=0;i<nums.length;i++){
-            if(nums[i]>0){
-                if(max<nums[i]) max=nums[i];
-                map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+        int n = nums.length;
+
+        // Step 1: Place each number in its correct position
+        for (int i = 0; i < n; i++) {
+            while (nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] != nums[i]) {
+                // Swap nums[i] to its correct position
+                int temp = nums[nums[i] - 1];
+                nums[nums[i] - 1] = nums[i];
+                nums[i] = temp;
             }
         }
-        int ans=1;
-        for(int i=1;i<=max+1;i++){
-            if(!map.containsKey(i)){
-                ans=i;
-                break;
+
+        // Step 2: Find the first missing positive number
+        for (int i = 0; i < n; i++) {
+            if (nums[i] != i + 1) {
+                return i + 1;
             }
         }
-        return ans;
+
+        // If all numbers are in their correct positions, the missing number is n + 1
+        return n + 1;
     }
 }
