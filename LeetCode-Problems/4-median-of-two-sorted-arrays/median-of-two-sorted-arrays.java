@@ -6,30 +6,20 @@ class Solution {
         int[] arr=new int[m+n];
         int i=0,j=0,k=0;
         while(i<m && j<n){
-            if(nums1[i]>nums2[j]){
-                arr[k++]=nums2[j++];
-            }
-            else if(nums1[i]<nums2[j]){
-                arr[k++]=nums1[i++];
-            }
+            if(nums1[i]>nums2[j]) arr[k++]=nums2[j++];
+            else if(nums1[i]<nums2[j]) arr[k++]=nums1[i++];
             else{
                 arr[k++]=nums1[i++];
                 arr[k++]=nums2[j++];
             }
         }
-        while(i<m){
-            arr[k++]=nums1[i++];
-        }
-        while(j<n){
-            arr[k++]=nums2[j++];
-        }
-        if(arr.length%2!=0){
-            ans=arr[arr.length/2];
-        }
-        else{
-            ans=(arr[(arr.length/2)-1]+arr[arr.length/2])/2.0;
-        }
-        // for(int l:arr) System.out.print(l+" ");
+        while(i<m) arr[k++]=nums1[i++];
+
+        while(j<n) arr[k++]=nums2[j++];
+
+        if(arr.length%2!=0) ans=arr[arr.length/2];
+        else ans=(arr[(arr.length/2)-1]+arr[arr.length/2])/2.0;
+
         return ans;
     }
 }
