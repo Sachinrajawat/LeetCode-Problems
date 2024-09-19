@@ -1,6 +1,6 @@
 class Solution {
     public int firstMissingPositive(int[] nums) {
-        Map<Integer,Integer> map=new TreeMap<>();
+        Map<Integer,Integer> map=new HashMap<>();
         long max=1;
         for(int i=0;i<nums.length;i++){
             if(nums[i]>0){
