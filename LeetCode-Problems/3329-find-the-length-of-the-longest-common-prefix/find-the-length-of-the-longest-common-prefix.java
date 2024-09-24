@@ -12,7 +12,7 @@ class Solution {
         for(int i=0;i<arr2.length;i++){
             while(arr2[i]!=0){
                 if(String.valueOf(arr2[i]).length()<=max) break;
-                if(set.contains(arr2[i])){
+                else if(set.contains(arr2[i])){
                     String s=String.valueOf(arr2[i]);
                     max=Math.max(max,s.length());
                     break;
