@@ -8,10 +8,6 @@ class MyCircularDeque {
             this.data=data;
             this.next=null;
         }
-        public Node(){
-            this.data=0;
-            this.next=null;
-        }
     }
     int maxSize=0;
     Node head;
@@ -23,9 +19,9 @@ class MyCircularDeque {
     public boolean insertFront(int value) {
         if(size==maxSize) return false;
         Node temp=new Node(value);
-        Node n=head.next;
+        Node headNext=head.next;
         head.next=temp;
-        temp.next=n;
+        temp.next=headNext;
         size++;
         return true;
     }
