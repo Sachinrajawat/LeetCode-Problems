@@ -1,7 +1,6 @@
 class Solution {
     public char kthCharacter(long k, int[] operations) {
         if(k==1) return 'a';
-        String s="a";
         long len=1,oprType=0,newk=0;
         for(int i=0;i<operations.length;i++){
             len*=2;
