@@ -1,25 +1,4 @@
 class Solution {
-    
-    /*boolean check(int n,List<String> board,int i,int j){
-        //upper left Diagonal, koi bhi queen present naa ho
-        int row=i,col=j;
-        while(row>=0 && col>=0){
-            if(board.get(row).charAt(col)=='Q')
-            return false;
-            row--;
-            col--;
-        }
-        //upper Right Diagonal, koi bhi queen present naa ho
-        row=i;
-        col=j;
-        while(row>=0 && col<n){
-            if(board.get(row).charAt(col)=='Q')
-            return false;
-            row--;
-            col++;
-        }
-        return true;
-    }*/
     void find(int row,int n,List<List<String>> ans,List<String> board,boolean[] col,int[] leftDig,int[] rightDig){
         //Base condition
         if(row==n){
