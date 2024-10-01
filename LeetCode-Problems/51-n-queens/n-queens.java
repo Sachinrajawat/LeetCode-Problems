@@ -18,11 +18,11 @@ class Solution {
             row--;
             col++;
         }
-        for (row = 0; row < i; row++) {
-            if (board.get(row).charAt(j) == 'Q') {
-                return false;
-            }
-        }
+        // for (row = 0; row < i; row++) {
+        //     if (board.get(row).charAt(j) == 'Q') {
+        //         return false;
+        //     }
+        // }
         return true;
     }
     void find(int row,int n,List<List<String>> ans,List<String> board,boolean[] col){
