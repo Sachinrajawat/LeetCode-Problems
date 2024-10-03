@@ -5,7 +5,6 @@ class Solution {
         for(int i=0;i<n;i++){
            sum=(sum+nums[i])%p; 
         }
-        // if(sum<p) return -1;
         sum%=p;
         if(sum==0) return 0;
         
