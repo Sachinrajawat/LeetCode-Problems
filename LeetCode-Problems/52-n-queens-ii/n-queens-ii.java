@@ -1,7 +1,8 @@
 class Solution {
-    public void find(int row,int n,List<List<String>> list,List<String> board,boolean[] col,int[] leftDiag,int[] rightDiag){
+    public void find(int row,int n,int[] count,List<String> board,boolean[] col,int[] leftDiag,int[] rightDiag){
          if(row==n){
-            list.add(new ArrayList<>(board));
+            // list.add(new ArrayList<>(board));
+            count[0]++;
             return;
         }
         for(int j=0;j<n;j++){
@@ -12,7 +13,7 @@ class Solution {
                 board.set(row, new String(rowChars));
                 leftDiag[n-1+j-row]=1;
                 rightDiag[row+j]=1;
-                find(row+1,n,list,board,col,leftDiag,rightDiag);
+                find(row+1,n,count,board,col,leftDiag,rightDiag);
                 
                 rowChars[j] = '.';
                 board.set(row, new String(rowChars));
@@ -23,7 +24,8 @@ class Solution {
         }
     }
     public int totalNQueens(int n) {
-        List<List<String>> list=new ArrayList<>();
+        // List<List<String>> list=new ArrayList<>();
+        int[] count={0};
         List<String> board=new ArrayList<>();
         for(int i=0;i<n;i++){
             String s="";
@@ -35,8 +37,7 @@ class Solution {
         int[] leftDiag=new int[2*n-1];
         int[] rightDiag=new int[2*n-1];
         boolean[] col=new boolean[n];
-        find(0,n,list,board, col, leftDiag, rightDiag);
-        // System.out.println(board+"/n"+list);
-        return list.size();
+        find(0,n,count,board, col, leftDiag, rightDiag);
+        return count[0];
     }
 }
