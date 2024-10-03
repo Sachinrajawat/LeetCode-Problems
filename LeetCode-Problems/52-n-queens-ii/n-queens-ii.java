@@ -1,7 +1,6 @@
 class Solution {
     public void find(int row,int n,int[] count,List<String> board,boolean[] col,int[] leftDiag,int[] rightDiag){
          if(row==n){
-            // list.add(new ArrayList<>(board));
             count[0]++;
             return;
         }
@@ -24,7 +23,6 @@ class Solution {
         }
     }
     public int totalNQueens(int n) {
-        // List<List<String>> list=new ArrayList<>();
         int[] count={0};
         List<String> board=new ArrayList<>();
         for(int i=0;i<n;i++){
