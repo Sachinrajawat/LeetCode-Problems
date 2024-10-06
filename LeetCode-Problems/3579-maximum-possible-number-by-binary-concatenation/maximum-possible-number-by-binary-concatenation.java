@@ -4,7 +4,6 @@ class Solution {
         String s=Integer.toBinaryString(nums[1]);
         String t=Integer.toBinaryString(nums[2]);
         String ans=f+s+t;
-        System.out.println(ans);
         int result=Integer.parseInt(ans,2);
         ans=f+t+s;
         result=Math.max(result,Integer.parseInt(ans,2));
