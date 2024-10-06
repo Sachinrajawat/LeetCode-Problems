@@ -14,7 +14,7 @@ class Solution {
 
         int s1=0,s2=0;
         int e1=arr1.length-1,e2=arr2.length-1;
-        while(s1<=e1 && arr1[s1].equals(arr2[s1])){
+        while(s1<=e1 && arr1[s1].equals(arr2[s2])){
             s1++;
             s2++;
         }
