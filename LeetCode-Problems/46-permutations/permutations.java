@@ -1,26 +1,28 @@
 class Solution {
-    public void permutation(List<List<Integer>> ans,int[] nums,List<Integer> arr,boolean[] isVisited){
-        
-        if(arr.size()==nums.length){
-            List<Integer> list=new ArrayList<>(arr);
+    public void permutation(List<List<Integer>> ans,int[] nums,int idx){
+        int n=nums.length;
+        if(idx==n-1){
+            List<Integer> list=new ArrayList<>();
+            for(int i=0;i<n;i++){
+                list.add(nums[i]);
+            }
             ans.add(list);
             return;
         }
-        for(int i=0;i<nums.length;i++){
-            if(isVisited[i]==false){
-                arr.add(nums[i]);
-                isVisited[i]=true;
-                permutation(ans,nums,arr,isVisited);
-                isVisited[i]=false;
-                arr.remove(arr.size()-1);
-            }
+        for(int i=idx;i<n;i++){
+            swap(i,idx,nums);
+            permutation(ans,nums,idx+1);
+            swap(i,idx,nums);
         }
+    }
+    public void swap(int i,int j,int[] nums){
+        int temp=nums[i];
+        nums[i]=nums[j];
+        nums[j]=temp;
     }
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> ans=new ArrayList<>();
-        List<Integer> arr=new ArrayList<>();
-        boolean[] isVisited=new boolean[nums.length];
-        permutation(ans,nums,arr,isVisited);
+        permutation(ans,nums,0);
         return ans;
     }
 }
