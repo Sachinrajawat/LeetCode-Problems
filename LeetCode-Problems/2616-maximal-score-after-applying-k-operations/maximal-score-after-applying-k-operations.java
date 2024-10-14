@@ -7,7 +7,6 @@ class Solution {
         long sum=0;
         while(k>0){
             int x=pq.poll();
-            System.out.println(x+" ");
             sum+=x;
             pq.add((int)Math.ceil((double)x/3));
             k--;
