@@ -1,9 +1,6 @@
 class Solution {
     public int maximumSwap(int num) {
         String nums=String.valueOf(num);
-
-        
-        // if(nums.charAt(0)=='9' || nums.length()==1) return num;
         StringBuilder sb=new StringBuilder(nums);
         boolean swap=false;
         for(int j=0;j<sb.length();j++){
