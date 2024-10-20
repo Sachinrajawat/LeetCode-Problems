@@ -14,10 +14,18 @@ class Solution {
                 char op=st.pop();
                 boolean ans=bool.peek();
                 if(op=='&'){
-                    while(!bool.isEmpty()) ans&=bool.pop();
+                    while(!bool.isEmpty()){
+                        ans&=bool.peek();
+                        if(!bool.peek()) break;
+                        bool.pop();
+                    }
                 }
                 else if(op=='|'){
-                    while(!bool.isEmpty()) ans|=bool.pop();
+                    while(!bool.isEmpty()){
+                        ans|=bool.peek();
+                        if(bool.peek()) break;
+                        bool.pop();
+                    }
                 }
                 else ans=!ans;
                 st.push(ans?'t':'f');
