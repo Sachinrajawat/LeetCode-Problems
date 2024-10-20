@@ -7,35 +7,24 @@ class Solution {
             else if(ch==')'){
                 Stack<Boolean> bool=new Stack<>();
                 while(st.peek()!='('){
-                    if(st.peek()=='f') bool.push(false);
-                    else bool.push(true);
+                    bool.push(st.peek()=='t');
                     st.pop();
                 }
                 st.pop();
                 char op=st.pop();
                 boolean ans=bool.peek();
                 if(op=='&'){
-                    while(!bool.isEmpty()){
-                        ans&=bool.pop();
-                    }
+                    while(!bool.isEmpty()) ans&=bool.pop();
                 }
                 else if(op=='|'){
-                    while(!bool.isEmpty()){
-                        ans|=bool.pop();
-                    }
+                    while(!bool.isEmpty()) ans|=bool.pop();
                 }
-                else{
-                    ans=!ans;
-                }
-                if(ans) st.push('t');
-                else st.push('f');
+                else ans=!ans;
+                st.push(ans?'t':'f');
             }
-            else{
-                st.push(ch);
-            }
-            
+            else st.push(ch);
         }
         
-        return st.pop()=='t'?true:false;
+        return st.pop()=='t';
     }
 }
