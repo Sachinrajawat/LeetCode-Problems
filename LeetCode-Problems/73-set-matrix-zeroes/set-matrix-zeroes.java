@@ -16,6 +16,5 @@ class Solution {
         for(var val:col){
             for(int i=0;i<matrix.length;i++) matrix[i][val]=0;
         }
-        System.out.println(row+" "+col);
     }
 }
