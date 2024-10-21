@@ -1,7 +1,6 @@
 class Solution {
     public int max=0;
     public void solve(List<String> arr,String s,int start){
-        
         if(start==s.length()){
             max=Math.max(max,arr.size());
             return;
