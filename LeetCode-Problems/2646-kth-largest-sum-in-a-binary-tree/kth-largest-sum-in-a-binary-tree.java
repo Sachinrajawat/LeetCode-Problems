@@ -17,10 +17,9 @@ class Solution {
     public long kthLargestLevelSum(TreeNode root, int k) {
         Queue<TreeNode> q=new LinkedList<>();
         q.add(root);
-        Queue<TreeNode> temp=new LinkedList<>();
-        // Set<Long> tree=new TreeSet(Collections.reverseOrder());
-        PriorityQueue<Long> pq=new PriorityQueue<>(Collections.reverseOrder());
         long sum=0;
+        PriorityQueue<Long> pq=new PriorityQueue<>(Collections.reverseOrder());
+        Queue<TreeNode> temp=new LinkedList<>();
         while(!q.isEmpty()){
             TreeNode t=q.remove();
             sum+=t.val;
@@ -33,14 +32,9 @@ class Solution {
                 sum=0;
             }
         }
-        // ArrayList<Long> arr=new ArrayList<>(tree);
         if(k>pq.size()) return -1;
         int j=0;
-        while(j<k-1){
-            pq.remove();
-            j++;
-        }
+        while(j++<k-1) pq.remove();
         return pq.remove();
-        // return k>arr.size()?-1:arr.get(k-1);
     }
 }
