@@ -1,12 +1,10 @@
 class Solution {
     public String ans="";
-    public void solve(ArrayList<String> arr,String[] s,String str){
+    public void solve(HashSet<String> arr,String[] s,String str){
         if(str.length()>=arr.size()) return;
-        int j=0;
         for(int i=0;i<2;i++){
             str+=s[i];
             if(str.length()==arr.size() && (!arr.contains(str))){
-                // ans.add(str);
                 ans=str;
                 break;
             }
@@ -16,10 +14,9 @@ class Solution {
         return;
     }
     public String findDifferentBinaryString(String[] nums) {
-        ArrayList<String> arr=new ArrayList<>();
+        HashSet<String> arr=new HashSet<>(Arrays.asList(nums));
         for(String num:nums) arr.add(num);
         String[] s={"0","1"};
-        // ArrayList<String> ans=new ArrayList<>();
         solve(arr,s,"");
         return ans;
     }
