@@ -1,14 +1,16 @@
 class Solution {
     public String ans="";
     public void solve(HashSet<String> arr,String[] s,String str){
+        if (str.length() == arr.size() && !arr.contains(str)) {
+            ans = str;
+            return;
+        }
         if(str.length()>=arr.size()) return;
         for(int i=0;i<2;i++){
             str+=s[i];
-            if(str.length()==arr.size() && (!arr.contains(str))){
-                ans=str;
-                break;
-            }
+            
             solve(arr,s,str);
+            if (!ans.isEmpty()) return;
             str=str.substring(0,str.length()-1);
         }
         return;
