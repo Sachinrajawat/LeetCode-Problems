@@ -1,10 +1,10 @@
 class Solution {
     public boolean canSortArray(int[] nums) {
         if(nums.length==1) return true;
-        HashMap<Integer,Integer> map=new HashMap<>();
+        Map<Integer,Integer> map=new LinkedHashMap<>();
         for(int i=0;i<nums.length;i++){
             String s=Integer.toBinaryString(nums[i]);
-            int countOnes = s.length() - s.replace("1", "").length();
+            int countOnes = s.length()-s.replace("1","").length();
             map.put(nums[i],countOnes);
         }
         for(int i=1;i<nums.length;i++){
@@ -20,7 +20,6 @@ class Solution {
                 }
             }
         }
-        // System.out.println(map);
         return true;
     }
 }
