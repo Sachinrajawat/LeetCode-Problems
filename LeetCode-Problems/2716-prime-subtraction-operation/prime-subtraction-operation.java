@@ -25,7 +25,7 @@ class Solution {
                 nums[i]-=sub;
             }
         }
-        // for(int i:nums) System.out.println(i);
+        
         return true;
     }
 }
