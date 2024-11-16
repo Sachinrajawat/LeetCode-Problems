@@ -12,6 +12,6 @@ class Solution {
         Arrays.fill(dp1,-1);
         int[] dp2=new int[n];
         Arrays.fill(dp2,-1);
-        return Math.max(find(n-1,Arrays.copyOfRange(nums,0,n-1),0,dp1),find(n-1,Arrays.copyOfRange(nums,1,n),0,dp2));
+        return Math.max(find(n-1,nums,0,dp1),find(n,nums,1,dp2));
     }
 }
