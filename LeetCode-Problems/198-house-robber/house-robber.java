@@ -1,14 +1,14 @@
 class Solution {
-    public int find(int index,int[] nums,int n,int[] dp){
-        if(index>=n) return 0;
-        if(dp[index]!=-1) return dp[index];
-        dp[index]=Math.max(nums[index]+ find(index+2,nums,n,dp),find(index+1,nums,n,dp));
-        return dp[index];
-    }
+    
     public int rob(int[] nums) {
         int n=nums.length;
-        int[] dp=new int[n+1];
+        int[] dp=new int[n+2];
         Arrays.fill(dp,-1);
-        return find(0,nums,n,dp);
+        dp[n]=0;
+        dp[n+1]=0;
+        for(int i=n-1;i>-1;i--){
+            dp[i]=Math.max(nums[i]+dp[i+2],dp[i+1]);
+        }
+        return dp[0];
     }
 }
