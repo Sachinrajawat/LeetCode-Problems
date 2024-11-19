@@ -19,7 +19,6 @@ class Solution {
         }
         ans=sum;
         if(map.size()!=k) return 0;
-        System.out.println(map+" "+i+" "+sum);
         int j=i;
         while(j<nums.length){
             if(size==k){map.remove(nums[j-k]);
@@ -40,7 +39,6 @@ class Solution {
                 size=0;
             }
         }
-        // System.out.println(set+" "+i+" "+sum);
         return ans;
     }
 }
