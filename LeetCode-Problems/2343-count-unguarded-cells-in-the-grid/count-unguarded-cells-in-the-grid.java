@@ -12,28 +12,23 @@ class Solution {
         for(int i=0;i<guards.length;i++){
             int x=guards[i][0],y=guards[i][1];
             int down=x+1;
-            while(down<m){
-                if(mat[down][y]==1) break;
-                else mat[down][y]=-1;
-                down++;
+            while(down<m && mat[down][y]!=1){
+                mat[down++][y]=-1;
             }
+
             int up=x-1;
-            while(up>=0){
-                if(mat[up][y]==1) break;
-                else mat[up][y]=-1;
-                up--;
+            while(up>=0 && mat[up][y]!=1){
+                mat[up--][y]=-1;
             }
+
             int left=y-1;
-            while(left>=0){
-                if(mat[x][left]==1) break;
-                else mat[x][left]=-1;
-                left--;
+            while(left>=0 && mat[x][left]!=1){
+                mat[x][left--]=-1;
             }
+            
             int right=y+1;
-            while(right<n){
-                if(mat[x][right]==1) break;
-                else mat[x][right]=-1;
-                right++;
+            while(right<n && mat[x][right]!=1){
+                mat[x][right++]=-1;
             }
         }
         
