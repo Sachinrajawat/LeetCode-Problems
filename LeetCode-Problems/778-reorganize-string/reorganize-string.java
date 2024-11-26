@@ -1,34 +1,33 @@
 class Solution {
     public String reorganizeString(String s) {
-        int[] freq=new int[26];
-        for (char c:s.toCharArray()) {
-            freq[c-'a']++;
+        int[] arr=new int[26];
+        for(int i=0;i<s.length();i++){
+            arr[s.charAt(i)-'a']++;
         }
-
-        PriorityQueue<int[]> maxHeap=new PriorityQueue<>((a, b)->b[0]-a[0]);
-        for(int i=0;i<26;i++) {
-            if(freq[i]>0) {
-                maxHeap.add(new int[]{freq[i], i});
+        PriorityQueue<int[]> pq=new PriorityQueue<>((a, b)->b[1]-a[1]);
+        for(int i=0;i<26;i++){
+            if(arr[i]>0){
+                pq.add(new int[]{i+'a',arr[i]});
             }
         }
-        StringBuilder result = new StringBuilder();
-        while (maxHeap.size()>1) {
-            int[] first=maxHeap.poll();
-            int[] second=maxHeap.poll();
-            result.append((char)(first[1] + 'a'));
-            result.append((char)(second[1] + 'a'));
-            if (--first[0]>0) maxHeap.add(first);
-            if (--second[0]>0) maxHeap.add(second);
+        int[] ar=pq.peek();
+        System.out.println(ar[0]+" "+ar[1]);
+        String res="";
+        while(pq.size()>1){
+            int[] a=pq.poll();
+            int[] b=pq.poll();
+            res+=(char)(a[0]);
+            res+=(char)(b[0]);
+            a[1]--;
+            b[1]--;
+            if(a[1]>0) pq.add(a);
+            if(b[1]>0) pq.add(b);
         }
-
-        if(!maxHeap.isEmpty()){
-            int[] last=maxHeap.poll();
-            if (last[0]>1) {
-                return "";
-            }
-            result.append((char)(last[1]+'a'));
+        if(!pq.isEmpty()){
+            int[] a=pq.poll();
+            if(a[1]>1) return "";
+            else res+=(char)a[0];
         }
-
-        return result.toString();
+        return res;
     }
 }
