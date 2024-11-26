@@ -11,7 +11,6 @@ class Solution {
             }
         }
         int[] ar=pq.peek();
-        System.out.println(ar[0]+" "+ar[1]);
         String res="";
         while(pq.size()>1){
             int[] a=pq.poll();
