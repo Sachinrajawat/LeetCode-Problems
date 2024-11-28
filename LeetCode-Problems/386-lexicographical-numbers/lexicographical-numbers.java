@@ -4,7 +4,7 @@ class Solution {
         list.add(curr);
         
         for(int i=0;i<=9;i++){
-            if(10*curr+i>n) return;
+            // if(10*curr+i>n) return;
             order(list,10*curr+i,n);
         }
     }
