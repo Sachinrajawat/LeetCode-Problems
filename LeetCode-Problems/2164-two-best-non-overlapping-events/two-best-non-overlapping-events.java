@@ -13,8 +13,8 @@ class Solution {
     }
     public int solve(int[][] events,int idx,int count,int n,int[][] dp){
         if(count==2 || idx>=n) return 0;
-        int nextValidIndex =binarySearch(events,events[idx][1],n);
         if(dp[idx][count]!=-1) return dp[idx][count];
+        int nextValidIndex =binarySearch(events,events[idx][1],n);
         int take=events[idx][2]+solve(events,nextValidIndex,count+1,n,dp);
         int not_take=solve(events,idx+1,count,n,dp);
         return dp[idx][count]=Math.max(take,not_take);
