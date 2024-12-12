@@ -8,18 +8,9 @@ class Solution {
         long ans=0;
         while(count<n){
             ans=pq.poll();
-            if(!seen.contains(ans*2)){
-                pq.add(ans*2);
-                seen.add(ans*2);
-            }
-            if(!seen.contains(ans*3)){
-                pq.add(ans*3);
-                seen.add(ans*3);
-            }
-            if(!seen.contains(ans*5)){
-                pq.add(ans*5);
-                seen.add(ans*5);
-            }
+            if(seen.add(ans*2)) pq.add(ans*2);
+            if(seen.add(ans*3)) pq.add(ans*3);
+            if(seen.add(ans*5)) pq.add(ans*5);  
             count++;
         }
         return (int)ans;
