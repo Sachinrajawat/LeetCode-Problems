@@ -22,7 +22,6 @@ class Solution {
         int count =0,i=0;
         while(!q.isEmpty()){
             TreeNode t=q.remove();
-            // if(t!=null) System.out.println(t.val);
             if(count%2!=0) t.val=arr.get(i++);
             if(t.left!=null){
                 temp.add(t.left);
@@ -30,17 +29,12 @@ class Solution {
             }
             if(t.right!=null){
                 temp.add(t.right);
-                if(count%2==0){
-                    arr.add(t.right.val);
-                }
+                if(count%2==0) arr.add(t.right.val);
             }
             if(q.isEmpty()){
-                System.out.println(arr);
                 q=temp;
                 temp=new LinkedList<>();
-                if(count%2==0){
-                    Collections.reverse(arr);
-                }
+                if(count%2==0) Collections.reverse(arr);
                 else{
                     arr=new ArrayList<>();
                     i=0;
