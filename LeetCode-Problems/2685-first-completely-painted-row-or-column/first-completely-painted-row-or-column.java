@@ -27,7 +27,6 @@ class Solution {
         for(int i=0;i<arr.length;i++){
             int[] a=map.get(arr[i]);
             mat[a[0]][a[1]]=-1;
-            System.out.println(a[0]+" "+a[1]);
             if(check(mat,a[0],a[1])) return i;
         }
         return 0;
