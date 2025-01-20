@@ -18,7 +18,7 @@ class Solution {
         return ans;
     }
     public int firstCompleteIndex(int[] arr, int[][] mat) {
-        HashMap<Integer,int[]> map=new HashMap<>();
+        Map<Integer,int[]> map=new TreeMap<>();
         for(int i=0;i<mat.length;i++){
             for(int j=0;j<mat[i].length;j++){
                 map.put(mat[i][j],new int[]{i,j});
