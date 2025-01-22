@@ -14,7 +14,7 @@ class Solution {
             }
         }
         if(ans==-1) return new int[]{-1,-1};
-        start=0;
+        start=ans;
         end=nums.length-1;
         int sec=0;
         while(start<=end){
@@ -28,13 +28,6 @@ class Solution {
                 start=mid+1;
             }
         }
-        
-        
-        // int sec=ans;
-        // for(int i=ans+1;i<nums.length;i++){
-        //     if(nums[i]==target) sec++;
-        //     else break;
-        // }
         return new int[]{ans,sec};
     }
 }
