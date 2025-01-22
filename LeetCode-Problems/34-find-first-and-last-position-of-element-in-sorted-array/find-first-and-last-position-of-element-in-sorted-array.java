@@ -5,7 +5,7 @@ class Solution {
         while(start<=end){
             int mid=start+(end-start)/2;
             if(nums[mid]<target) start=mid+1;
-            
+
             else if(nums[mid]>target) end=mid-1;
 
             else{
@@ -13,13 +13,28 @@ class Solution {
                 end=mid-1;
             }
         }
-        
         if(ans==-1) return new int[]{-1,-1};
-        int sec=ans;
-        for(int i=ans+1;i<nums.length;i++){
-            if(nums[i]==target) sec++;
-            else break;
+        start=0;
+        end=nums.length-1;
+        int sec=0;
+        while(start<=end){
+            int mid=start+(end-start)/2;
+            if(nums[mid]<target) start=mid+1;
+            
+            else if(nums[mid]>target) end=mid-1;
+
+            else{
+                sec=mid;
+                start=mid+1;
+            }
         }
+        
+        
+        // int sec=ans;
+        // for(int i=ans+1;i<nums.length;i++){
+        //     if(nums[i]==target) sec++;
+        //     else break;
+        // }
         return new int[]{ans,sec};
     }
 }
