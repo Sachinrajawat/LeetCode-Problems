@@ -4,12 +4,7 @@ class Solution {
         int sum=nums[0];
         for(int i=1;i<nums.length;i++){
             if(nums[i]>nums[i-1]) sum+=nums[i];
-            // else if(nums[i]<nums[i-1]){
-            //     sum=nums[i];
-            // }
-            else{
-                sum=nums[i];
-            }
+            else sum=nums[i];
             ans=Math.max(sum,ans);
         }
         return ans;
