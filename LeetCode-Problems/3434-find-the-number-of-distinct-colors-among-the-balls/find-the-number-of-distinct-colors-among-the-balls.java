@@ -10,7 +10,6 @@ class Solution {
                 ArrayList<Integer> array=colMap.get(ballMap.get(key));
                 array.remove((Integer) key);
                 if(array.size()==0) colMap.remove(ballMap.get(key));
-                ballMap.put(key,val);
                 if(colMap.containsKey(val)){
                     ArrayList<Integer> arr=colMap.get(val);
                     arr.add(key);
@@ -23,7 +22,6 @@ class Solution {
                 }
             }
             else{
-                ballMap.put(key,val);
                 if(colMap.containsKey(val)){
                     ArrayList<Integer> arr=colMap.get(val);
                     arr.add(key);
@@ -35,8 +33,8 @@ class Solution {
                     colMap.put(val,arr);
                 }
             }
+            ballMap.put(key,val);
             ans[i]=colMap.size();
-            // System.out.println(ballMap+" "+colMap);
         }
         return ans;
     }
