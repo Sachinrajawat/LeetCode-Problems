@@ -1,28 +1,28 @@
 class ProductOfNumbers {
-    // HashMap<Integer, Integer> map;
-    // int idx;
-    // int sum;
     ArrayList<Integer> arr;
+    int prod;
     public ProductOfNumbers() {
-        // map=new HashMap<>();
-        // idx=1;
-        // sum=1;
         arr=new ArrayList<>();
+        prod=1;
     }
     
     public void add(int num) {
-        // sum*=num;
-        // map.put(idx,sum);
-        // idx++;
-        arr.add(num);
+        
+        if(num==0){
+            arr.clear();
+            prod=1;
+        }
+        else{
+            prod*=num;
+            arr.add(prod);
+        }
     }
     
     public int getProduct(int k) {
-        int prod=1;
-        for(int i=arr.size()-1;i>=arr.size()-k;i--){
-            prod*=arr.get(i);
-        }
-        return prod;
+        int n=arr.size();
+        if (k > n) return 0;
+        if(k==n) return arr.get(n-1);
+        return arr.get(n-1)/arr.get(n-k-1);
     }
 }
 
