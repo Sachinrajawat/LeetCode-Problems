@@ -4,8 +4,10 @@ class Solution {
             if(!isVisited[i]){
                 isVisited[i]=true;
                 solve(isVisited,tiles,s,set);
-                set.add(s+tiles.charAt(i));
-                solve(isVisited,tiles,s+tiles.charAt(i),set);
+                String str=s+tiles.charAt(i);
+                if(!set.contains(str)) set.add(str);
+                // set.add(s+tiles.charAt(i));
+                solve(isVisited,tiles,str,set);
                 isVisited[i]=false;
             }
         }
