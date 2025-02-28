@@ -7,9 +7,13 @@ class Solution {
         }
         return 2;
     }
-    public int solve(int jIdx,int[] arr,HashMap<Integer, Integer> map){
+    public int lenLongestFibSubseq(int[] arr) {
+        HashMap<Integer,Integer> map=new HashMap<>();
+        for(int i=0;i<arr.length;i++){
+            map.put(arr[i],i);
+        }
         int res=0;
-        for(int j=jIdx;j<arr.length-1;j++){
+        for(int j=1;j<arr.length-1;j++){
             for(int k=j+1;k<arr.length;k++){
                 int len=solve1(j,k,arr,map);
                 if(len>=3){
@@ -18,12 +22,5 @@ class Solution {
             }
         }
         return res;
-    }
-    public int lenLongestFibSubseq(int[] arr) {
-        HashMap<Integer,Integer> map=new HashMap<>();
-        for(int i=0;i<arr.length;i++){
-            map.put(arr[i],i);
-        }
-        return solve(1,arr,map);
     }
 }
