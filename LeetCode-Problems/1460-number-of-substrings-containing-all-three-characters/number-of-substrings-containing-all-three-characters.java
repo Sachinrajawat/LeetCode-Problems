@@ -10,7 +10,7 @@ class Solution {
             arr[i][0]=a;
             arr[i][1]=b;
             arr[i][2]=c;
-            System.out.print(arr[i][0]+" "+arr[i][1]+" "+arr[i][2]+", ");
+            // System.out.print(arr[i][0]+" "+arr[i][1]+" "+arr[i][2]+", ");
         }
         int ans=0;
         for(int i=0;i<n;i++){
