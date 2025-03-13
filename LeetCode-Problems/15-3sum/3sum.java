@@ -3,22 +3,25 @@ class Solution {
         Arrays.sort(nums);
         HashSet<List<Integer>> set=new HashSet<>();
         for(int i=2;i<nums.length;i++){
-            HashMap<Integer,Integer> map=new HashMap<>();
-            for(int j=0;j<i;j++){
-                if(i!=j){
-                    int comp=-1*nums[i]-nums[j];
-                    if(map.containsKey(comp)){
-                        ArrayList<Integer> arr=new ArrayList<>();
-                        arr.add(nums[i]);
-                        arr.add(nums[j]);
-                        arr.add(nums[map.get(comp)]);
-                        set.add(arr);
+            int target=-nums[i];
+            int st=0,end=i-1;
+            while(st<end){
+                int sum=nums[st]+nums[end];
+                if(sum>target) end--;
+                else if(sum<target) st++;
+                else{
+                    set.add(Arrays.asList(nums[st], nums[end], nums[i]));
+                    st++;
+                    end--;
+                    while (st < end && nums[st] == nums[st - 1]) {
+                        st++;
                     }
-                    map.put(nums[j],j);
+                    while (st < end && nums[end] == nums[end + 1]) {
+                        end--;
+                    }
                 }
             }
         }
-        List<List<Integer>> list=new ArrayList<>(set);
-        return list;
+         return new ArrayList<>(set);
     }
 }
