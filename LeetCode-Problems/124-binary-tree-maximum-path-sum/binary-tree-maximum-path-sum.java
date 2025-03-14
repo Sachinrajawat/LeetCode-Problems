@@ -20,7 +20,6 @@ class Solution {
         int left=Math.max(0,solve(root.left));
         int right=Math.max(0,solve(root.right));
         maxAns=Math.max(maxAns,root.val+left+right);
-        // System.out.println(left+" "+right+" "+ans);
         return root.val+Math.max(left,right);
     }
     public int maxPathSum(TreeNode root) {
