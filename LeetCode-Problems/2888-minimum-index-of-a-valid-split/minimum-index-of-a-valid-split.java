@@ -15,9 +15,7 @@ class Solution {
             map2.put(num,map2.getOrDefault(num,0)+1);
             int n1=i+1;
             int n2=n-i-1;
-            if(map2.get(num)>n1/2 && map1.getOrDefault(num, 0)>n2/2) return i;            
-
-
+            if(map2.get(num)*2>n1 && map1.getOrDefault(num, 0)*2>n2) return i;
         }
         return -1;
 
