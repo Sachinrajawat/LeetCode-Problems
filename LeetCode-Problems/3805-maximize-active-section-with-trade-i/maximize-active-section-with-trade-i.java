@@ -9,9 +9,7 @@ class Solution {
                     left0++;
                     left--;
                 }
-                while(i<s.length() && s.charAt(i)=='1'){
-                    i++;
-                }
+                while(i<s.length() && s.charAt(i)=='1') i++;
                 
                 int right=i,right0=0;
                 while(right<s.length() && s.charAt(right)=='0'){
@@ -19,11 +17,8 @@ class Solution {
                     right++;
                 }
                 if(left0>0 && right0>0) max=Math.max(max,left0+right0);
-                // System.out.println(left0+" "+right0+" "+max);
             }
-            else{
-                i++;
-            }
+            else i++;
         }
         for(int j=0;j<s.length();j++){
             if(s.charAt(j)=='1') max++;
