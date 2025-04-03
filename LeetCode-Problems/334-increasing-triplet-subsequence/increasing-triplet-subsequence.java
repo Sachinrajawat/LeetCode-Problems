@@ -15,7 +15,7 @@ class Solution {
             sufMax[i-2]=max;
         }
         for(int j=1;j<n-1;j++){
-            System.out.println(prefMin[j-1]+" "+nums[j]+" "+sufMax[j-1]);
+            // System.out.println(prefMin[j-1]+" "+nums[j]+" "+sufMax[j-1]);
             boolean left=false, right=false;
             if(prefMin[j-1]<nums[j]) left=true;
             if(sufMax[j-1]>nums[j]) right=true;
