@@ -22,8 +22,6 @@ class Solution {
         for(int i=1;i<m-1;i++){
             temp=temp.next;
         }
-        if(m==1) return null;
-
         temp.next=temp.next.next;
         return head;
     }
