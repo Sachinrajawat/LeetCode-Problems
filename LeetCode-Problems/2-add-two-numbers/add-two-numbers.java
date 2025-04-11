@@ -9,65 +9,49 @@
  * }
  */
 class Solution {
-    public ListNode reverse(ListNode list){
-        if(list.next==null) return list;
-        ListNode prev=null, temp=list;
-        while(temp!=null){
-            ListNode next=temp.next;
-            temp.next=prev;
-            prev=temp;
-            temp=next;
-        }
-        return prev;
-    }
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode revL1=l1;
-        ListNode revL2=l2;
         ListNode rev=new ListNode(-1);
         ListNode temp=rev;
         int carry=0;
-        while(revL1!=null && revL2!=null){
-            int sum=carry+revL1.val+revL2.val;
+        while(l1!=null && l2!=null){
+            int sum=carry+l1.val+l2.val;
             if(sum>9){
                 carry=1;
                 temp.next=new ListNode(sum%10);
-                temp=temp.next;
             }
             else{
                 carry=0;
                 temp.next=new ListNode(sum);
-                temp=temp.next;
             }
-            revL1=revL1.next;
-            revL2=revL2.next;
+            temp=temp.next;
+            l1=l1.next;
+            l2=l2.next;
         }
-        while(revL1!=null){
-            int sum=carry+revL1.val;
+        while(l1!=null){
+            int sum=carry+l1.val;
             if(sum>9){
                 carry=1;
                 temp.next=new ListNode(sum%10);
-                temp=temp.next;
             }
             else{
                 carry=0;
                 temp.next=new ListNode(sum);
-                temp=temp.next;
             }
-            revL1=revL1.next;
+            temp=temp.next;
+            l1=l1.next;
         }
-        while(revL2!=null){
-            int sum=carry+revL2.val;
+        while(l2!=null){
+            int sum=carry+l2.val;
             if(sum>9){
                 carry=1;
                 temp.next=new ListNode(sum%10);
-                temp=temp.next;
             }
             else{
                 carry=0;
                 temp.next=new ListNode(sum);
-                temp=temp.next;
             }
-            revL2=revL2.next;
+            temp=temp.next;
+            l2=l2.next;
         }
         if(carry==1){
             temp.next=new ListNode(1);
