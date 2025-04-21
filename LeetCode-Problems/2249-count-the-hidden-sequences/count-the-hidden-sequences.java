@@ -19,15 +19,14 @@ class Solution {
                 break;
             }
         }
-        int max=Integer.MAX_VALUE;
+        if(min==Integer.MAX_VALUE) return 0;
+        int max=0;
         for(int i=upper;i>=lower;i--){
             if(isPossible(differences,i,lower,upper)){
                 max=i;
                 break;
             }
         }
-        if(max==Integer.MAX_VALUE || min==Integer.MAX_VALUE) return 0;
-        // System.out.println(max+" "+min);
-        return max-min+1<=0?0:max-min+1;
+        return max-min+1;
     }
 }
