@@ -10,7 +10,10 @@ class Solution {
             Set<Integer> s=new HashSet<>();
             for(int j=i;j<nums.length;j++){
                 s.add(nums[j]);
-                if(s.size()>=size) count++;
+                if(s.size()==size){
+                    count+=nums.length-j;
+                    break;
+                }
             }
         }
         return count;
