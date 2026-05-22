@@ -9,8 +9,6 @@ class Solution {
         return -1;
     }
     public int search(int[] nums, int target) {
-        // if(nums.length==1 && nums[0]==target) return 0;
-        // if(nums.length==1 && nums[0]!=target) return -1;
         int mid=-1, n=nums.length;
         for(int i=0;i<n-1;i++){
             if(nums[i]>nums[i+1]){
@@ -19,9 +17,6 @@ class Solution {
             }
         }
         int ans=find(nums,0,mid,target);
-        if(ans==-1){
-            ans=find(nums,mid+1,n-1,target);
-        }
-        return ans;
+        return ans==-1?find(nums,mid+1,n-1,target):ans;
     }
 }
