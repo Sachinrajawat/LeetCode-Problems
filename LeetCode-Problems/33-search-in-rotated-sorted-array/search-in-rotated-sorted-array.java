@@ -9,8 +9,8 @@ class Solution {
         return -1;
     }
     public int search(int[] nums, int target) {
-        if(nums.length==1 && nums[0]==target) return 0;
-        if(nums.length==1 && nums[0]!=target) return -1;
+        // if(nums.length==1 && nums[0]==target) return 0;
+        // if(nums.length==1 && nums[0]!=target) return -1;
         int mid=-1, n=nums.length;
         for(int i=0;i<n-1;i++){
             if(nums[i]>nums[i+1]){
