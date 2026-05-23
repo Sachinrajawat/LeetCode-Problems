@@ -5,7 +5,6 @@ class Solution {
             if(nums[i]>nums[i+1]) c++;
             if(c>1) return false;
         }
-        return c==1?nums[nums.length-1]<=nums[0]:true;
-        
+        return c==1?(nums[nums.length-1]<=nums[0]):true;
     }
 }
