@@ -1,17 +1,24 @@
 class Solution {
     public void sortColors(int[] nums) {
         int n=nums.length;
-        for(int i=0;i<n-1;i++){
-            if(nums[i]>nums[i+1]){
-                int st=i,end=i+1;
-                while(st>=0 && nums[st]>nums[end]){
-                    int temp=nums[st];
-                    nums[st]=nums[end];
-                    nums[end]=temp;
-                    st--;
-                    end--;
-                }
-            }
+        int countZero=0, countOne=0, countTwo=0;
+        for(int i=0;i<n;i++){
+           if(nums[i]==0) countZero++;
+           else if(nums[i]==1) countOne++;
+           else countTwo++;
+        }
+        int i=0;
+        for(int j=0;j<countZero;j++){
+            nums[i]=0;
+            i++;
+        }
+         for(int j=0;j<countOne;j++){
+            nums[i]=1;
+            i++;
+        }
+         for(int j=0;j<countTwo;j++){
+            nums[i]=2;
+            i++;
         }
     }
 }
