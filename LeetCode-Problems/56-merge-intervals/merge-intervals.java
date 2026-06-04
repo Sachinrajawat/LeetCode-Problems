@@ -1,36 +1,25 @@
 class Solution {
     public int[][] merge(int[][] intervals) {
-        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
-        List<List<Integer>> list=new ArrayList<>();
-        for (int i = 0; i < intervals.length; i++) {
-            List<Integer> row = new ArrayList<>();
-            
-                row.add(intervals[i][0]);
-                row.add(intervals[i][1]);
-            list.add(row);
-        }
-        System.out.println(list);
-        List<List<Integer>> ans=new ArrayList<>();
-        while(list.size()>0){
-            int x=list.get(0).get(0);
-            int y=list.get(0).get(1);
-            int i=1;
-            while(i<list.size()){
-                if(list.get(i).get(0)>=x &&list.get(i).get(0)<=y || list.get(i).get(0)<=x &&list.get(i).get(1)>=x){
-                    x=Math.min(x,list.get(i).get(0));
-                    y=Math.max(y,list.get(i).get(1));
-                    list.remove(i);
-                }
-                else i++;
+        int n=intervals.length;
+        if(n==1) return intervals;
+        ArrayList<int[]> arr=new ArrayList<>();
+        Arrays.sort(intervals, (a,b)->Integer.compare(a[0], b[0]));
+        int i=0;
+        while(i<n){
+            int[] array=intervals[i];
+            int j=i+1;
+            while(j<n && intervals[j][0]<=array[1]){
+                array[1]=Math.max(array[1],intervals[j][1]);
+                j++;
             }
-            ans.add(new ArrayList<>(List.of(x,y)));
-            list.remove(0);
+            arr.add(array);
+            i=j;
         }
-        int[][] ans1=new int[ans.size()][2];
-        for(int j=0;j<ans.size();j++){
-            ans1[j][0]=ans.get(j).get(0);
-            ans1[j][1]=ans.get(j).get(1);
+        int[][] ans=new int[arr.size()][2];
+        for(i=0;i<arr.size();i++){
+            ans[i][0]=arr.get(i)[0];
+            ans[i][1]=arr.get(i)[1];
         }
-        return ans1;
+        return ans;
     }
 }
