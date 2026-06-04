@@ -10,7 +10,6 @@ class Solution {
         }
         if(row==-1) return false;
         int st=0, end=n;
-        System.out.println(row);
         while(st<=end){
             int mid=st+(end-st)/2;
             if(matrix[row][mid]==target){
