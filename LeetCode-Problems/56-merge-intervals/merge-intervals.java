@@ -4,19 +4,14 @@ class Solution {
         if(n==1) return intervals;
         ArrayList<int[]> arr=new ArrayList<>();
         Arrays.sort(intervals, (a,b)->Integer.compare(a[0], b[0]));
-        int i=0;
-        while(i<n){
-            int[] array=intervals[i];
-            int j=i+1;
-            while(j<n && intervals[j][0]<=array[1]){
-                array[1]=Math.max(array[1],intervals[j][1]);
-                j++;
-            }
-            arr.add(array);
-            i=j;
+        arr.add(intervals[0]);
+        for(int i=1;i<n;i++){
+            if(arr.get(arr.size()-1)[1]>=intervals[i][0]){
+                arr.get(arr.size()-1)[1]=Math.max(arr.get(arr.size()-1)[1],intervals[i][1]);
+            }else arr.add(intervals[i]);
         }
         int[][] ans=new int[arr.size()][2];
-        for(i=0;i<arr.size();i++){
+        for(int i=0;i<arr.size();i++){
             ans[i][0]=arr.get(i)[0];
             ans[i][1]=arr.get(i)[1];
         }
