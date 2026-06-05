@@ -1,14 +1,21 @@
 class Solution {
     public List<Integer> majorityElement(int[] nums) {
-        int n=nums.length/3;
-        HashMap<Integer,Integer> map=new HashMap<>();
-        for(int i=0;i<nums.length;i++){
-            map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+        int n = nums.length;
+        List<Integer> result = new ArrayList<>();
+        Map<Integer, Integer> mpp = new HashMap<>();
+        int mini = n / 3 + 1;
+
+        for (int i = 0; i < n; i++) {
+            mpp.put(nums[i], mpp.getOrDefault(nums[i], 0) + 1);
+
+            // Add to result only when the count just reaches mini
+            if (mpp.get(nums[i]) == mini) {
+                result.add(nums[i]);
+            }
+
+            if (result.size() == 2) break;
         }
-        List<Integer> list=new ArrayList<>();
-        for(var key:map.keySet()){
-            if(map.get(key)>n) list.add(key);
-        }
-        return list;
+
+        return result;
     }
 }
