@@ -1,22 +1,17 @@
 class Solution {
-    public void solve(int[] nums,int idx, Set<List<Integer>> ans){
-        if(idx==nums.length) return;
-        int size=ans.size();
-        List<List<Integer>> list=new ArrayList<>(ans);
-        for(int i=0;i<size;i++){
-            List<Integer> l=new ArrayList<>(list.get(i));
-            l.add(nums[idx]);
-            ans.add(l);
+    public void backtrack(int[] nums,int start, List<Integer> current, List<List<Integer>> ans){
+        ans.add(new ArrayList<>(current));
+        for(int i=start;i<nums.length;i++){
+            if(i>start && nums[i]==nums[i-1]) continue;
+            current.add(nums[i]);
+            backtrack(nums, i+1, current, ans);
+            current.remove(current.size()-1);
         }
-        solve(nums, idx+1, ans);
-        return;
     }
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         Arrays.sort(nums);
-        Set<List<Integer>> ans=new HashSet<>();
-        List<Integer> arr=new ArrayList<>();
-        ans.add(arr);
-        solve(nums, 0, ans);
-        return new ArrayList(ans);
+        List<List<Integer>> ans=new ArrayList<>();
+        backtrack(nums, 0, new ArrayList<>(), ans);
+        return ans;
     }
 }
