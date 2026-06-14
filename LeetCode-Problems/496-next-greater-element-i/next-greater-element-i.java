@@ -1,14 +1,13 @@
 class Solution {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
         int[] nge=new int[nums2.length];
-        Arrays.fill(nge,-1);
-        for(int i=0;i<nums2.length-1;i++){
-            for(int j=i;j<nums2.length;j++){
-                if(nums2[i]<nums2[j]){
-                    nge[i]=nums2[j];
-                    break;
-                }
-            }
+        Stack<Integer> st=new Stack<>();
+
+        for(int i=nums2.length-1;i>=0;i--){
+            while(!st.isEmpty() && st.peek()<=nums2[i]) st.pop();
+            if(st.isEmpty()) nge[i]=-1;
+            else nge[i]=st.peek();
+            st.push(nums2[i]);
         }
         int[] ans=new int[nums1.length];
         for(int i=0;i<nums1.length;i++){
