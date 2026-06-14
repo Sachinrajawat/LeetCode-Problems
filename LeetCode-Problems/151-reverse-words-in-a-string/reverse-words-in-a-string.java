@@ -15,11 +15,6 @@ class Solution {
             while(i<len && s.charAt(i)==' ') i++;
             if(i!=len) ans=" "+ans;
         }
-        
-        // for(int j=arr.size()-1;j>=0;j--){
-        //     ans+=arr.get(j);
-        //     if(j!=0) ans+=" ";
-        // }
         return ans;
     }
 }
