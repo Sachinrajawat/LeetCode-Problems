@@ -2,23 +2,17 @@ class Solution {
     public boolean isValid(String s) {
         Stack<Character> st=new Stack<>();
         int i=0;
-        while(i<s.length()){
-            // System.out.println(st+" "+i);
-            char ch=s.charAt(i);
+        for(char ch:s.toCharArray()){
             if(ch=='}' || ch==')' || ch==']'){
                 if(st.isEmpty()) return false;
                 char c=st.pop();
-                if((c=='(' && ch==')') || (c=='{' && ch=='}') || (c=='[' && ch==']')){
-                    i++;
-                    continue;
+                if((ch==')' && c!='(') || (ch=='}' && c!='{') || (ch==']' && c!='[')){
+                    return false;
                 }
-                else return false;
             }
             else{
                 st.push(ch);
             }
-            // System.out.println(ch+" "+st+" "+i);
-            i++;
         }
         return st.isEmpty();
     }
