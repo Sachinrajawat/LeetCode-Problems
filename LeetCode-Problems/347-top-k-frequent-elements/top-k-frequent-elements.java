@@ -1,30 +1,21 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
-        HashMap<Integer,Integer> map=new HashMap<>();
-        for(int i:nums) map.put(i,map.getOrDefault(i,0)+1);
-        TreeMap<Integer,ArrayList<Integer>> Tmap=new TreeMap<>(Collections.reverseOrder());
+        Map<Integer, Integer> map=new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            map.put(nums[i], map.getOrDefault(nums[i], 0)+1);
+        }
+        // System.out.println(map);
+        PriorityQueue<int[]> queue=new PriorityQueue<>((a,b)->b[1]-a[1]);
         for(var key:map.keySet()){
-            if(!Tmap.containsKey(map.get(key))){
-                ArrayList<Integer> arr=new ArrayList<>();
-                arr.add(key);
-                Tmap.put(map.get(key),arr);
-            }
-            else{
-                ArrayList<Integer> arr=Tmap.get(map.get(key));
-                arr.add(key);
-                Tmap.put(map.get(key),arr);
-            }
+            int[] arr=new int[]{key, map.get(key)};
+            queue.add(arr);
         }
         int[] ans=new int[k];
-        int j=0;
-        while(j<k){
-            for(var key:Tmap.keySet()){
-                ArrayList<Integer> arr=Tmap.get(key);
-                for(int i=0;i<arr.size();i++){
-                    ans[j++]=arr.get(i);
-                    if(j==k) return ans;
-                }
-            }
+        while(k>0){
+            int[] array=queue.remove();
+            // System.out.println(array[0]+" "+array[1]);
+            ans[k-1]=array[0];
+            k--;
         }
         return ans;
     }
