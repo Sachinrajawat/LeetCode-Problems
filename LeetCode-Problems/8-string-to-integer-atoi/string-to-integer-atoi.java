@@ -12,7 +12,6 @@ class Solution {
         else if(s.charAt(i)=='+') i++;
         long ans=0;
         while(i<n && s.charAt(i)=='0') i++;
-        String str="";
         while(i<s.length()){
             char ch=s.charAt(i);
             if(ch>='0' && ch<='9'){
