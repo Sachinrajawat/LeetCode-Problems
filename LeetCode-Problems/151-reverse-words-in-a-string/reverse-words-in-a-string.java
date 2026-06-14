@@ -2,7 +2,6 @@ class Solution {
     public String reverseWords(String s) {
         int len=s.length();
         int i=0;
-        ArrayList<String> arr=new ArrayList<>();
         while(i<len && s.charAt(i)==' ') i++;
         String ans="";
         while(i<len){
