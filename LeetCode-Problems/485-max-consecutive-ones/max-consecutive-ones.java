@@ -5,7 +5,7 @@ class Solution {
             if(nums[i]==1){
                 count++;
             }
-            else{
+            else if(count>0){
                 ans=Math.max(ans, count);
                 count=0;
             }
