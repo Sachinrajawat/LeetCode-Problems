@@ -3,7 +3,7 @@ class Solution {
         List<List<Integer>> list=new ArrayList<>();
         if(nums.length<3) return list;
         Arrays.sort(nums);
-        for(int k=0;k<nums.length;k++){
+        for(int k=0;k<nums.length-2;k++){
             if(k>0 && nums[k]==nums[k-1]){
                 continue;
             }
