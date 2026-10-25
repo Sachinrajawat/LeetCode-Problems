@@ -1,24 +1,27 @@
 class Solution {
     public void sortColors(int[] nums) {
-        int n=nums.length;
-        int countZero=0, countOne=0, countTwo=0;
-        for(int i=0;i<n;i++){
-           if(nums[i]==0) countZero++;
-           else if(nums[i]==1) countOne++;
-           else countTwo++;
+        int c0=0, c1=0, c2=0;
+        for(var num:nums){
+            if(num==0) c0++;
+            else if(num==1) c1++;
+            else c2++;
         }
         int i=0;
-        for(int j=0;j<countZero;j++){
+        while(c0>0){
             nums[i]=0;
+            c0--;
             i++;
         }
-         for(int j=0;j<countOne;j++){
+        while(c1>0){
             nums[i]=1;
+            c1--;
             i++;
         }
-         for(int j=0;j<countTwo;j++){
+        while(c2>0){
             nums[i]=2;
+            c2--;
             i++;
         }
+
     }
 }
