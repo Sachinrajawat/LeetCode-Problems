@@ -1,28 +1,19 @@
 class Solution {
-    public int maxSum(int[] nums){
-        int maxSum=Integer.MIN_VALUE;
-        int currSum=0;
-        for(int num:nums){
-            currSum+=num;
-            maxSum=Math.max(maxSum,currSum);
-            if(currSum<0) currSum=0;
-        }
-        return currSum;
-    }
-    public int minSum(int[] nums){
-        int minSum=Integer.MAX_VALUE;
-        int currSum=0;
-        for(int num:nums){
-            currSum+=num;
-            minSum=Math.min(minSum,currSum);
-            if(currSum>0) currSum=0;
-        }
-        return currSum;
-    }
     public int maxAbsoluteSum(int[] nums) {
-        int max=maxSum(nums);
-        int min=minSum(nums);
-        // System.out.println(max+" "+min);
-        return Math.abs(max-min);
+        int max=Integer.MIN_VALUE;
+        int sum=0;
+        for(int num:nums){
+            sum+=num;
+            if(sum<0) sum=0;
+            max=Math.max(max, sum);
+        }
+        int min=Integer.MAX_VALUE;
+        sum=0;
+        for(int num:nums){
+            sum+=num;
+            if(sum>0) sum=0;
+            min=Math.min(min, sum);
+        }
+        return Math.max(Math.abs(max), Math.abs(min));
     }
 }
