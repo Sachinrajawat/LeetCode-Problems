@@ -1,9 +1,7 @@
 class Solution {
     public int longestConsecutive(int[] nums) {
         if(nums.length==0) return 0;
-        Arrays.sort(nums);
         int count=1, max=1, last=Integer.MIN_VALUE;
-        // Map<Integer, Integer> map=new HashMap<>();
         Set<Integer> set=new TreeSet<>(); 
         for(int i=0;i<nums.length;i++){
             set.add(nums[i]);
