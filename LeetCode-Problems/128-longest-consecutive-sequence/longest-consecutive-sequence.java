@@ -6,7 +6,6 @@ class Solution {
         for(int i=0;i<nums.length;i++){
             set.add(nums[i]);
         }
-        System.out.println(set);
         for(int val:set){
             if(last==val-1) count++;
             else{
