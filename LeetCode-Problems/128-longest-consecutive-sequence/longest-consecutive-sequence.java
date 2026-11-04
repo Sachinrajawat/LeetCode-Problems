@@ -13,7 +13,6 @@ class Solution {
                 count=1;
             }
             last=val;
-            // System.out.println(last);
         }
         return Math.max(max, count);
     }
