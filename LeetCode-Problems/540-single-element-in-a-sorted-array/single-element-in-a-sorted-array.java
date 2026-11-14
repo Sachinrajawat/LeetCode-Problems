@@ -1,18 +1,16 @@
 class Solution {
+    public int binarySearch(int[] nums, int st, int end){
+        if(st>end) return -1;
+        int mid=st+(end-st)/2;
+        if(mid-1>=0 && nums[mid]!=nums[mid-1] && mid+1<nums.length && nums[mid]!=nums[mid+1]) return nums[mid];
+        if(mid-1<0 && mid+1<nums.length && nums[mid]!=nums[mid+1]) return nums[mid];
+        if(mid+1>=nums.length && mid-1>=0 && nums[mid]!=nums[mid-1]) return nums[mid];
+        int ans1=binarySearch(nums,st, mid-1);
+        int ans2=binarySearch(nums, mid+1, end);
+        return ans1==-1?ans2:ans1;
+    }
     public int singleNonDuplicate(int[] nums) {
-        int ans=0, n=nums.length;
-        if(n==1) return nums[0];
-        if(nums[0]!=nums[1]) return nums[0];
-        if(nums[n-1]!=nums[n-2]) return nums[n-1];
-        int st=1, end=n-2;
-        while(st<=end){
-            int mid=st+(end-st)/2;
-            if(nums[mid]!=nums[mid-1] && nums[mid]!=nums[mid+1]) return nums[mid];
-            if((mid%2==1 && nums[mid]==nums[mid-1]) || (mid%2==0 && nums[mid]==nums[mid+1])){
-                st=mid+1;
-            }
-            else end=mid-1;
-        }
-        return -1;
+        if(nums.length==1) return nums[0];
+        return binarySearch(nums, 0, nums.length-1);
     }
 }
