@@ -11,10 +11,6 @@ class Solution {
             int mid=st+(end-st)/2;
             int count=0, sum=0;
             for(int i=0;i<n;i++){
-                // if(sum>mid){
-                //     count=days+1;
-                //     break;
-                // }
                 sum+=weights[i];
                 if(sum>mid){
                     count++;
