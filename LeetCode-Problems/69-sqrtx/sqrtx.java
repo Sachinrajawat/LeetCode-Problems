@@ -1,17 +1,19 @@
 class Solution {
     public int mySqrt(int x) {
-        long ans=0;
-        long st=0,end=x;
+        int st=0, end=x;
+        int ans=Integer.MIN_VALUE;
         while(st<=end){
-            long mid=st+(end-st)/2;
-            if(mid*mid>x){
+            int mid=st+(end-st)/2;
+            long product=(long)mid*mid;
+            if(product<x){
+                ans=Math.max(ans, mid);
+                st=mid+1;
+            }
+            else if(product==x) return mid;
+            else{
                 end=mid-1;
             }
-            else{
-                ans=mid;
-                st=mid+1;
-            }  
         }
-        return (int)ans;
+        return ans;
     }
 }
