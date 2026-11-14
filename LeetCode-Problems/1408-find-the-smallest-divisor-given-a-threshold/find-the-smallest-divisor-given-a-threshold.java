@@ -1,11 +1,10 @@
 class Solution {
     public int smallestDivisor(int[] nums, int threshold) {
         int ans=Integer.MAX_VALUE;
-        int max=-1;
+        int st=1, end=-1;
         for(int num:nums){
-            max=Math.max(max, num);
+            end=Math.max(end, num);
         }
-        int st=1, end=max;
         while(st<=end){
             int mid=st+(end-st)/2;
             int sum=0;
@@ -15,9 +14,7 @@ class Solution {
             if(sum<=threshold){
                 ans=Math.min(ans, mid);
                 end=mid-1;
-            }else{
-                st=mid+1;
-            }
+            }else st=mid+1;
         }
         return ans;
     }
