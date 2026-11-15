@@ -1,6 +1,6 @@
 class Solution {
     public int isPalindrome(String s, int st, int end,int[][] dp){
-        if(st>=end) return dp[st][end]=1;
+        if(st>=end) return 1;
         if(dp[st][end]!=-1) return dp[st][end];
         if(s.charAt(st)==s.charAt(end)) 
             return dp[st][end]=isPalindrome(s, st+1, end-1,dp);
