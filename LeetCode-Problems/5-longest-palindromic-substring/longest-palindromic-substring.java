@@ -11,7 +11,7 @@ class Solution {
         int n=s.length();
         int maxLen=0;
         int sp=0;
-        int[][] dp=new int[1001][1001];
+        int[][] dp=new int[n+1][n+1];
         for(int[] arr:dp){
             Arrays.fill(arr, -1);
         }
