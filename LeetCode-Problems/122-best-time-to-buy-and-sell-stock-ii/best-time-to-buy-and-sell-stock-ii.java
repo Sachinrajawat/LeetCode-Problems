@@ -1,20 +1,22 @@
 class Solution {
-    public int solve(int[] prices,int idx,int hasStock, int[][] dp){
-        if(idx>=prices.length) return 0;
-        if(dp[idx][hasStock]!=-1) return dp[idx][hasStock];
-        int not=solve(prices,idx+1,hasStock,dp);
-        int pick=0;
-        if(hasStock==0){
-            pick=-prices[idx]+solve(prices,idx+1,1,dp);
+    public int solve(int[] prices, int i, int canBuy,int[][] dp){
+        if(i>=prices.length) return 0;
+        if(dp[i][canBuy]!=-1) return dp[i][canBuy];
+        if(canBuy!=1){
+            int sell=prices[i]+solve(prices, i+1, 1, dp);
+            int notSell=solve(prices, i+1, 0, dp);
+            return dp[i][canBuy]=Math.max(sell, notSell);
+        }else{
+            int buy=-prices[i]+solve(prices, i+1, 0, dp);
+            int notBuy=solve(prices, i+1, 1, dp);
+            return dp[i][canBuy]=Math.max(buy, notBuy);
         }
-        else{
-            pick=prices[idx]+solve(prices,idx+1,0,dp);
-        }
-        return dp[idx][hasStock]=Math.max(not,pick);
     }
     public int maxProfit(int[] prices) {
         int[][] dp=new int[prices.length][2];
-        for(int[] a:dp) Arrays.fill(a,-1);
-        return solve(prices,0,0,dp);
+        for (int[] row : dp) {
+            Arrays.fill(row, -1);
+        }
+        return solve(prices, 0, 1, dp);
     }
 }
