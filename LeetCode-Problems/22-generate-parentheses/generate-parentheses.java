@@ -18,7 +18,7 @@ class Solution {
         solve(open, close-1, count-1, s+')', list);
         solve(open-1, close, count+1, s+'(', list);
         }
-        return;
+        // return;
     }
     public List<String> generateParenthesis(int n) {
         List<String> list=new ArrayList<>();
