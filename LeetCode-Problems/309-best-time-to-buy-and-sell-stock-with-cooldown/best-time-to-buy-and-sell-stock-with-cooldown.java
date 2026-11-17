@@ -1,21 +1,21 @@
 class Solution {
-    public int solve(int[] prices,int idx,int buy,int[][] dp){
+    public int solve(int[] prices, int idx, int isStock, int[][] dp){
         if(idx>=prices.length) return 0;
-        // System.out.println(idx);
-        if(dp[idx][buy+1]!=-1) return dp[idx][buy+1];
-        if(buy>=0){
-            if(prices[idx]>buy){
-                return dp[idx][buy+1]=Math.max(prices[idx]-buy+solve(prices,idx+2,-1,dp),solve(prices,idx+1,buy,dp));
-            }
-            else return dp[idx][buy+1]=solve(prices,idx+1,buy,dp);
+        if(dp[idx][isStock]!=-1) return dp[idx][isStock];
+        if(isStock==0){
+            int buy=-prices[idx]+solve(prices, idx+1, 1, dp);
+            int notBuy=solve(prices, idx+1, isStock, dp);
+            return dp[idx][isStock]=Math.max(buy, notBuy);
         }
         else{
-            return dp[idx][buy+1]= Math.max(solve(prices,idx+1,prices[idx],dp),solve(prices,idx+1,buy,dp));
+            int sell=prices[idx]+solve(prices, idx+2, 0,dp);
+            int notSell=solve(prices, idx+1, isStock,dp);
+            return dp[idx][isStock]=Math.max(sell, notSell);
         }
     }
     public int maxProfit(int[] prices) {
-        int[][] dp=new int[prices.length][5000];
-        for(int i=0;i<prices.length;i++) Arrays.fill(dp[i],-1);
-        return solve(prices,0,-1,dp);
+        int[][] dp=new int[prices.length][2];
+        for(int[] row:dp) Arrays.fill(row, -1);
+        return solve(prices, 0, 0, dp);
     }
 }
