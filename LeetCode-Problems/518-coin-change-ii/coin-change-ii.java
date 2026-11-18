@@ -1,13 +1,20 @@
 class Solution {
-    public int change(int amount, int[] coins) {
-        int[] dp=new int[amount+1];
-        dp[0]=1;
-        for(int i=1;i<=coins.length;i++){
-            for (int j = 1; j <=amount; j++) {
-                if(coins[i-1]<=j) dp[j]+=dp[j-coins[i-1]];
-            }
+    public int solve(int amount, int idx,int[] coins, int[][] dp){
+        if(amount ==0) return 1;
+        if(amount<0 || idx>=coins.length) return 0;
+        if(dp[idx][amount]!=-1) return dp[idx][amount];
+        int notTake=solve(amount, idx+1, coins, dp);
+        int take=0;
+        if(coins[idx]<=amount){
+            take=solve(amount-coins[idx], idx, coins, dp);
         }
-        
-        return  dp[amount];
+        return dp[idx][amount]=notTake+take;
+    }
+    public int change(int amount, int[] coins) {
+        int[][] dp=new int[coins.length][amount+1];
+        for(int[] row:dp){
+            Arrays.fill(row, -1);
+        }
+        return solve(amount,0, coins, dp);
     }
 }
